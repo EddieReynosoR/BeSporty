@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ issues.title }}{% endblock title %}
+
+{% block content %}
+<div class="post-detail">
+    <h1>{{ issues.title }}</h1>
+    <h3>{{ issues.summary }}</h3>
+    <strong>Created by: {{ issues.requester }}</strong>
+    <h4>{{ issues.status }}</h4>
+    <p>{{ issues.description }}</p>
+    {% if user.role.name == "Agent" or user.role.name == "Manager" %}
+    <p class="author-options">
+        <a href="{% url 'edit' issues.id %}" class="card-link"><i class="bi bi-file-earmark-plus"></i></a>
+        <a href="{% url 'delete' issues.id %}" class="card-link"><i class="bi bi-trash"></i></a>
+    </p>
+    {% endif %}
+
+</div>
+{% endblock content %}

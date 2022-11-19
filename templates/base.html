@@ -1,0 +1,86 @@
+{%load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock title %}</title>
+
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'home' %}">Issues Manager</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a> 
+                     
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'list' %}">See All Issues</a>
+                </li>       
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'about' %}">About</a>
+                </li>     
+
+                {% if user.is_authenticated %}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      {{user.role}}
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        {% if user.role.name == "Customer" %}
+                            <li><a class="dropdown-item" href="{% url 'create' %}">Post new issue</a></li>
+                        {% else %}
+                            <li><a class="dropdown-item" href="{% url 'todo_list' %}">To do</a></li>
+                            <li><a class="dropdown-item" href="{% url 'inprogress_list' %}">In progress</a></li>
+                            <li><a class="dropdown-item" href="{% url 'done_list' %}">Done</a></li>
+                        {% endif %}
+                            <li><hr class="dropdown-item-divider"></li>
+                            <li><a class="dropdown-item" href="{% url 'password_change' %}">Change Password</a></li>
+                        {% if user.is_staff %}
+                        <li><a class="dropdown-item" href="{% url 'admin:index' %}">Admin</a></li>
+                        {% endif %}
+                        <li class="dropdown-item">
+                            <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
+                        </li> 
+                    </ul>
+                  </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'login' %}">Log In</a>
+                    </li> 
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'signup' %}">Sign Up</a>
+                    </li> 
+                {% endif %}
+            </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        {% block content %}
+        {% endblock content %}
+    </div>
+      
+    
+
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+</body>
+</html>

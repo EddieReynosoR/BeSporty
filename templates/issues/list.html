@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}Issues{% endblock title %}
+
+{% block content %}
+    <h1>All Issues</h1>
+
+    {% if issues_list|length > 0 %}
+
+        <ul>
+            {% for issue in issues_list %}
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">{{ issue.title }}</h4>
+                    <h5 class="card-subtitle mb-2 text-muted">{{ issue.summary}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Status: {{ issue.status}}</h6>
+                    <h6 class="card-subtitle mb-2 text-muted">Assignee: {{ issue.assignee }}</h6>
+                    <p class="card-text">{{ issue.description|truncatechars:500 }}</p>
+                    <a href="{% url 'detail' issue.id %}" class="card-link">Read more</a>
+                    {% if user.role.name == "Agent" or user.role.name == "Manager" %}
+                    <p class="author-options">
+                        <a href="{% url 'edit' issue.id %}" class="card-link"><i class="bi bi-file-earmark-plus"></i></a>
+                        <a href="{% url 'delete' issue.id %}" class="card-link"><i class="bi bi-trash"></i></a>
+                    </p>
+                    {% endif %}
+                </div>
+            </div>
+            <br />
+                
+            {% endfor %}
+
+        </ul>
+
+    {% else %}
+
+        <h5>There's no issues yet.</h5>
+
+    {% endif %}
+{% endblock content %}
+
