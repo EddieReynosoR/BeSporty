@@ -1,0 +1,339 @@
+nav.navbar.navbar-expand-lg.bg-light {
+    font-family: 'Poppins', sans-serif;
+}
+
+div.container-fluid {
+    justify-content: space-between;
+}
+
+#signButton {
+    background-color: black;
+    color: white;
+    border-color: black;
+    border-radius: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+#checkButton {
+    background-color: white;
+    color: black;
+    border-color: white;
+    border-radius: 25px;
+    padding-left: 30px;
+    padding-right: 30px;
+
+    font-size: 20px;
+}
+
+#signButton:hover {
+    background-color: gray;
+    color: white;
+    border-color: gray;
+}
+
+#checkButton:hover {
+    background-color: gray;
+    color: white;
+    border-color: gray;
+}
+
+@media(max-width:992px) {
+    #signButton {
+        margin-top: 10px;
+    }
+}
+
+
+#searchLabel {
+    border-radius: 20px;
+}
+
+#menuOptions {
+    margin-left: 100px
+}
+
+.container-fluid {
+    justify-content: space-between;
+}
+
+.principal-section {
+    width: 90%;
+    position: relative;
+    margin: auto;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    height: 500px;
+}
+
+.principal-section:before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.8));
+}
+
+.principal-section .section-text {
+    position: absolute;
+    bottom: 20px;
+    left: 10px;
+    color: white;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 3em;
+    margin-left: 20px;
+    margin-right: 10px;
+
+    font-family: 'Oswald', sans-serif;
+}
+
+.principal-section .section-img {
+    width: 100%;
+    height: 500px;
+}
+
+@media(max-width:547px) {
+    .container-fluid {
+        justify-content: space-between;
+    }
+
+    .principal-section {
+        width: 80%;
+        position: relative;
+        margin: auto;
+        margin-bottom: 20px;
+        margin-top: 10px;
+        height: 400px;
+    }
+
+    .principal-section:before {
+        content: "";
+        width: 80%;
+        height: 80%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.8));
+    }
+
+    .principal-section .section-text {
+        position: absolute;
+        bottom: 20px;
+        left: 10px;
+        color: white;
+        font-family: 'Roboto Condensed', sans-serif;
+        font-size: 2em;
+        margin-left: 20px;
+        margin-right: 20px;
+
+        font-family: 'Oswald', sans-serif;
+    }
+
+    .principal-section .section-img {
+        width: 100%;
+        height: 400px;
+    }
+}
+
+
+#checkOut {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 30px;
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
+
+.checkProducts {
+    width: 80%;
+    padding: 100px 0;
+    background-color: #191919;
+    margin-left: 10%;
+}
+
+.checkProducts img {
+    height: 90%;
+    width: 430px;
+    margin-right: 20px;
+}
+
+.about-text {
+    width: 550px;
+}
+
+.main {
+    width: 90%;
+    max-width: 95%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.about-text h2 {
+    color: white;
+    font-size: 60px;
+    text-transform: capitalize;
+    margin-bottom: 20px;
+}
+
+.about-text h5 {
+    color: white;
+    letter-spacing: 2px;
+    font-size: 22px;
+    margin-bottom: 25px;
+    text-transform: capitalize;
+}
+
+.about-text p {
+    color: #fcfcfc;
+    letter-spacing: 1px;
+    line-height: 28px;
+    font-size: 18px;
+    margin-bottom: 45px;
+}
+
+
+@media(max-width:940px) {
+    #checkOut {
+        font-family: 'Bebas Neue', cursive;
+        font-size: 30px;
+        margin-top: 10px;
+        margin-bottom: 50px;
+    }
+
+    .checkProducts {
+        width: 80%;
+        padding: 100px 0;
+        background-color: #191919;
+        margin-left: 10%;
+    }
+
+    .checkProducts img {
+        height: 90%;
+        width: 230px;
+        margin-right: 20px;
+        display: none;
+    }
+
+    .about-text {
+        width: 350px;
+    }
+
+    .main {
+        width: 90%;
+        max-width: 95%;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .about-text h2 {
+        color: white;
+        font-size: 30px;
+        text-transform: capitalize;
+        margin-bottom: 20px;
+    }
+
+    .about-text h5 {
+        color: white;
+        letter-spacing: 2px;
+        font-size: 12px;
+        margin-bottom: 25px;
+        text-transform: capitalize;
+    }
+
+    .about-text p {
+        color: #fcfcfc;
+        letter-spacing: 1px;
+        line-height: 28px;
+        font-size: 15px;
+        margin-bottom: 45px;
+    }
+
+    #checkButton {
+        background-color: white;
+        color: black;
+        border-color: white;
+        border-radius: 25px;
+        padding-left: 30px;
+        padding-right: 30px;
+
+        font-size: 15px;
+    }
+}
+
+.footer {
+    margin-top: 150px;
+    box-sizing: border-box;
+    background-color: #191919;
+    height: auto;
+    width: 100%;
+    font-family: 'Roboto Condensed', sans-serif;
+    padding-top: 40px;
+    color: white;
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.footer-content h3 {
+    font-size: 30px;
+    font-weight: 400;
+    text-transform: capitalize;
+    line-height: 3rem;
+}
+
+.footer-content p {
+    max-width: 500px;
+    margin: 10px auto;
+    line-height: 28px;
+    font-size: 14px;
+}
+
+.socialMedia {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0 3rem 0;
+}
+
+.socialMedia li {
+    margin: 0 10px;
+}
+
+.socialMedia a {
+    text-decoration: none;
+    color: white;
+}
+
+.socialMedia a i {
+    font-size: 1.1rem;
+    transition: color .4s ease;
+}
+
+.socialMedia a:hover i {
+    color: gray;
+}
+
+.footer-bottom {
+    background-color: black;
+    width: 100vw;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-bottom p {
+    font-size: 10px;
+    word-spacing: 2px;
+    text-transform: capitalize;
+    margin-left: 20px;
+}

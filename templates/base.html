@@ -15,72 +15,96 @@
 
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'home' %}">Issues Manager</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a> 
-                     
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'list' %}">See All Issues</a>
-                </li>       
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'about' %}">About</a>
-                </li>     
+    <header>
+        <nav class="navbar navbar-expand-lg bg-light">
+            <div class="container-fluid">
+                <div>
+                    <a class="navbar-brand" href="index.html">BeSporty</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown" id="menuOptions">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="products.html">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="postItem.html">Post item</a>
+                        </li>
 
-                {% if user.is_authenticated %}
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      {{user.role}}
-                    </a>
-                    <ul class="dropdown-menu">
-                        
-                        
-                        {% if user.role.name == "Customer" %}
-                            <li><a class="dropdown-item" href="{% url 'create' %}">Post new issue</a></li>
-                        {% else %}
-                            <li><a class="dropdown-item" href="{% url 'todo_list' %}">To do</a></li>
-                            <li><a class="dropdown-item" href="{% url 'inprogress_list' %}">In progress</a></li>
-                            <li><a class="dropdown-item" href="{% url 'done_list' %}">Done</a></li>
-                        {% endif %}
-                            <li><hr class="dropdown-item-divider"></li>
-                            <li><a class="dropdown-item" href="{% url 'password_change' %}">Change Password</a></li>
-                        {% if user.is_staff %}
-                        <li><a class="dropdown-item" href="{% url 'admin:index' %}">Admin</a></li>
-                        {% endif %}
-                        <li class="dropdown-item">
-                            <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
-                        </li> 
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="support.html">Support</a>
+                        </li>
                     </ul>
-                  </li>
-                {% else %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'login' %}">Log In</a>
-                    </li> 
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+                            id="searchLabel">
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'signup' %}">Sign Up</a>
-                    </li> 
-                {% endif %}
-            </ul>
+                    </form>
+
+                    <a class="btn btn-outline-success" type="submit" id="signButton" href="./signin.html">Sign in</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="principal-section">
+            <h1 class="section-text">Best options of the market</h1>
+
+            <img src="./images/shoes.jpg" alt="section image" class="section-img">
+        </div>
+
+        <section class="checkProducts">
+            <div class="main">
+                <img src="./images/kyrie.png" alt="sneakers" />
+                <div class="about-text">
+                    <h2>What's new?</h2>
+                    <h5>Sneakers shop</h5>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil assumenda autem, consectetur
+                        pariatur at facere, in maiores totam perferendis corporis dolorem mollitia eius accusantium sed
+                        voluptates, aperiam esse nisi vel!</p>
+
+
+                    <button class="btn btn-outline-success" type="submit" id="checkButton">Check out</button>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <footer>
+        <div class="footer">
+            <div class="footer-content">
+                <h3>BeSporty</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <ul class="socialMedia">
+                    <li><a href='#'><i class="fa-brands fa-facebook"></i></a></li>
+                    <li><a href='#'><i class="fa-brands fa-instagram"></i></a></li>
+                    <li><a href='#'><i class="fa-brands fa-twitter"></i></a></li>
+                    <li><a href='#'><i class="fa-brands fa-tiktok"></i></a></li>
+                </ul>
+            </div>
+            <div className="footer-bottom">
+                <p>BeSporty &copy; 2022.</p>
             </div>
         </div>
-    </nav>
-
-    <div class="container">
-        {% block content %}
-        {% endblock content %}
-    </div>
-      
-    
+    </footer>
 
 
     <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
 </body>
 </html>
