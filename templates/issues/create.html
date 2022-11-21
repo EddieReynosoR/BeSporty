@@ -1,12 +1,29 @@
 {% extends 'base.html' %}
 
-{% block title %}New Issue Post{% endblock title %}
+{% block title %}Support {% endblock title %}
 
 {% block content %}
-    <h1>New Blog Post</h1>
+<div class="support-container">
+    <h2>Frecuent Questions</h2>      
+        <div class="Questions-container">
+            <h3>How to cancel the order?</h3>
+                <h4>You need to send an email to the following address example@hotmail.com,
+                with the folio that was sent to the email when you comfirmed the purchase.</h4>
+    
+            <h3>Can you return the products?</h3>
+                <h4>Yes you can, but you need to give it we no visible damage and properly packaged</h4>
+    
+            <h3>Can you erase your account?</h3>
+                <h4>Yes you can, jusy go yo the settings, in profile select data, and click the button
+                delete account, then confirm..</h4>
+        </div>
+    <h2 class="message">Any other question you might have just send an email to customer support using the
+    following form.</h2>
+    <h1>Support Contact </h1>
     <form method="POST">
         {% csrf_token %}
         {{ form.as_p }}
         <input type="submit" value="Create" class="btn btn-success">
     </form>
+</div>
 {% endblock content %}

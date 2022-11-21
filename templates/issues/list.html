@@ -12,10 +12,9 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">{{ issue.title }}</h4>
-                    <h5 class="card-subtitle mb-2 text-muted">{{ issue.summary}}</h5>
                     <h6 class="card-subtitle mb-2 text-muted">Status: {{ issue.status}}</h6>
                     <h6 class="card-subtitle mb-2 text-muted">Assignee: {{ issue.assignee }}</h6>
-                    <p class="card-text">{{ issue.description|truncatechars:500 }}</p>
+                    <p class="card-text">{{ issue.body|truncatechars:500 }}</p>
                     <a href="{% url 'detail' issue.id %}" class="card-link">Read more</a>
                     {% if user.role.name == "Agent" or user.role.name == "Manager" %}
                     <p class="author-options">
