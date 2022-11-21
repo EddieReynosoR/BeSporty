@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ item.title }}{% endblock title %}
+
+{% block content %}
+<div class="post-detail">
+    <h1>{{ item.title }}</h1>
+    <h3>{{ item.price }}</h3>
+    <p>{{ item.description }}</p>
+    
+    <p class="author-options">
+        <a href="{% url 'edit' issues.id %}" class="card-link"><i class="bi bi-file-earmark-plus"></i></a>
+        <a href="{% url 'delete' issues.id %}" class="card-link"><i class="bi bi-trash"></i></a>
+    </p>
+    
+
+</div>
+{% endblock content %}

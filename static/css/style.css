@@ -337,3 +337,8 @@ div.container-fluid {
     text-transform: capitalize;
     margin-left: 20px;
 }
+
+#cardImage{
+    width: 250px;
+    height: 250px;
+}
