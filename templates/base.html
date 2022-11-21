@@ -7,6 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock title %}</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
@@ -19,7 +23,7 @@
         <nav class="navbar navbar-expand-lg bg-light">
             <div class="container-fluid">
                 <div>
-                    <a class="navbar-brand" href="index.html">BeSporty</a>
+                    <a class="navbar-brand" href="{% url 'home' %}">BeSporty</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
                         aria-label="Toggle navigation">
@@ -57,30 +61,7 @@
         </nav>
     </header>
 
-    <main>
-        <div class="principal-section">
-            <h1 class="section-text">Best options of the market</h1>
-
-            <img src="./images/shoes.jpg" alt="section image" class="section-img">
-        </div>
-
-        <section class="checkProducts">
-            <div class="main">
-                <img src="./images/kyrie.png" alt="sneakers" />
-                <div class="about-text">
-                    <h2>What's new?</h2>
-                    <h5>Sneakers shop</h5>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil assumenda autem, consectetur
-                        pariatur at facere, in maiores totam perferendis corporis dolorem mollitia eius accusantium sed
-                        voluptates, aperiam esse nisi vel!</p>
-
-
-                    <button class="btn btn-outline-success" type="submit" id="checkButton">Check out</button>
-
-                </div>
-            </div>
-        </section>
-    </main>
+    {% block content %}{% endblock content %}
 
 
     <footer>
