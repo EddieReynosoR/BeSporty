@@ -5,9 +5,9 @@ from django.urls import reverse
 
 class Items(models.Model):
     title = models.CharField(max_length=256)
-    price = models.DecimalField(decimal_places=2, max_digits= 4)
+    price = models.DecimalField(decimal_places=2, max_digits= 10)
     description = models.CharField(max_length=512)
-    image = models.ImageField(blank=True)
+    image = models.ImageField(blank=True, upload_to="images/")
 
 
     def __str__(self):

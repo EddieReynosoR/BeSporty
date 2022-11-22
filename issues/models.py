@@ -5,7 +5,7 @@ from django.urls import reverse
 # Create your models here.
 class Status(models.Model):
     name = models.CharField(max_length=128)
-    description = models.charField(max_length=256)
+    description = models.CharField(max_length=256)
 
 class Issue(models.Model):
     title = models.CharField(max_length=256)
