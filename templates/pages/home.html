@@ -5,11 +5,32 @@
 
 {% block content %}
 <main>
-    <div class="principal-section">
-        <h1 class="section-text">Best options of the market</h1>
+    <section class="section">
+        <div class="slider">
+            <div class="slide">
+                <input type="radio" name="radio-btn" id="radio1">
+                <input type="radio" name="radio-btn" id="radio2">
+                <input type="radio" name="radio-btn" id="radio3">
+                <input type="radio" name="radio-btn" id="radio4">
 
-        <img src="{% static 'images/image1.jpg' %}" alt="section image" class="section-img">
-    </div>
+                <div class="st">
+                    <img src="" alt="">
+                </div>
+
+                <div class="st">
+                    <img src="" alt="">
+                </div>
+
+                <div class="st">
+                    <img src="" alt="">
+                </div>
+
+                <div class="st">
+                    <img src="" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section class="checkProducts">
         <div class="main">
@@ -22,7 +43,7 @@
                     voluptates, aperiam esse nisi vel!</p>
 
 
-                <button class="btn btn-outline-success" type="submit" id="checkButton">Check out</button>
+                <a class="btn btn-outline-success" type="button" id="checkButton" href="{% url 'list' %}">Check out</a>
 
             </div>
         </div>

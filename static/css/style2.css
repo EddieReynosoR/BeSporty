@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Signika+Negative:wght@500&display=swap');
 
 * {
     margin: 0;
@@ -9,16 +10,18 @@
 
 div.body {
     min-height: 100vh;
+    min-height: 20vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #EFEFEF;
+    background-color: white;
+    margin-bottom: 30px;
 }
 
 .slide-container {
     max-width: 1120px;
     width: 100%;
-    background-color: grey;
+    background-color: white;
     padding: 40px 0;
 }
 
@@ -54,7 +57,7 @@ div.body {
     top: 0;
     height: 100%;
     width: 100%;
-    background-color: #4070F4;
+
     border-radius: 25px 25px 0 25px;
 }
 
@@ -66,7 +69,7 @@ div.body {
     bottom: -40px;
     height: 40px;
     width: 40px;
-    background-color: #4070F4;
+
 }
 
 .overlay::after {
@@ -88,7 +91,7 @@ div.body {
     width: 100%;
     object-fit: cover;
     border-radius: 50%;
-    border: 4px solid #4070F4;
+    border: 4px solid #333
 }
 
 .name {
@@ -108,7 +111,7 @@ div.body {
     font-size: 16px;
     color: #FFF;
     padding: 8px 16px;
-    background-color: #4070F4;
+    background-color: #333;
     border-radius: 6px;
     margin: 14px;
     transition: all 0.3s ease;
@@ -120,11 +123,17 @@ div.body {
 
 .swiper-navBtn {
     color: #6E93F7;
+    background: #6b6b6b;
+}
+
+.swiper-navBtn {
+    color: rgb(70, 70, 70);
     transition: color 0.3s ease;
 }
 
 .swiper-navBtn:hover {
     color: #4070F4;
+    color: rgb(0, 0, 0);
 }
 
 .swiper-navBtn::before,
@@ -142,19 +151,61 @@ div.body {
 
 .swiper-pagination.bullet {
     background-color: #6E93F7;
+    background-color: black;
     opacity: 1;
 }
 
 .swiper-pagination.bullet-active {
-    background-color: #4070F4
+    background-color: #4070F4;
+    background-color: black;
 }
 
 @media screen and (max-width: 768px) {
     .slide-content {
         margin: 0 10px;
     }
-
     .swiper-navBtn {
         display: none;
     }
+
+
+
+
+}
+
+h3.title {
+    text-align: center;
+    margin: 0 auto 50px;
+    position: relative;
+    line-height: 60px;
+    color: #555;
+}
+
+h3.title::after {
+    content: '';
+    background: rgb(15, 83, 243);
+    width: 80px;
+    height: 5px;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateY(-50%);
+}
+
+
+.col-4 {
+    flex-basis: 25%;
+    padding: 10px;
+    min-width: 200px;
+    margin-bottom: 50px;
+}
+
+.col-4 h4,
+.col-4 p {
+    font-family: 'Signika Negative', sans-serif;
+}
+
+.col-4 img {
+    width: 100%;
 }
