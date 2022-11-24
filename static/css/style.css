@@ -338,10 +338,11 @@ div.container-fluid {
     margin-left: 20px;
 }
 
-#cardImage{
+#cardImage {
     width: 250px;
     height: 250px;
 }
+
 /*Support*/
 
 #searchLabel {

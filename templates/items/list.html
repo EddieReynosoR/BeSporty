@@ -3,45 +3,45 @@
 {% block title %}Items{% endblock title %}
 
 {% block content %}
-<h1>Check out the products!</h1>
+<h3 class="title">Check out the products!</h1>
 
 <div class="body">
     {% if items_list|length > 0 %}
 
-    <ul>
-        
-        <div class="slide-container swiper">
-            <div class="slide-content">
-                <div class="card-wrapper swiper-wrapper">
-                    {% for item in items_list %}
-                    <div class="card swiper-slide">
-                        <div class="image-content">
-                            <span class="overlay"></span>
+    
+    
+    <div class="slide-container swiper">
+        <div class="slide-content">
+            <div class="card-wrapper swiper-wrapper">
+                {% for item in items_list %}
+                <div class="card swiper-slide">
+                    <div class="image-content">
+                        <span class="overlay"></span>
 
-                            <div class="card-image">
-                                <img src="{{ item.image.url }}" alt="image" class="card-img">
-                            </div>
-                        </div>
-
-                        <div class="card-content">
-                            <h2 class="name">{{item.title}}</h2>
-                            <p class="description">{{item.description}}</p>
-
-                            <button class="button">Watch</button>
+                        <div class="card-image">
+                            <img src="{{ item.image.url }}" alt="image" class="card-img">
                         </div>
                     </div>
-                    {% endfor %}
-                </div>
-            </div>
 
-            <div class="swiper-button-next swiper-navBtn"></div>
-            <div class="swiper-button-prev swiper-navBtn"></div>
-            <div class="swiper-pagination"></div>
+                    <div class="card-content">
+                        <h2 class="name">{{item.title}}</h2>
+                        <p class="description">{{item.description}}</p>
+
+                        <button class="button">Check</button>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
         </div>
+
+        <div class="swiper-button-next swiper-navBtn"></div>
+        <div class="swiper-button-prev swiper-navBtn"></div>
+        <div class="swiper-pagination"></div>
+    </div>
 
         
 
-    </ul>
+    
 
     {% else %}
 
@@ -50,4 +50,21 @@
     {% endif %}
 
 </div>
+
+<div class="small-container">
+    <h3 class="title">Check out other products</h2>
+        <div class="row">
+            {% for item in items_list %}
+            <div class="col-4">
+                <img src="{{ item.image.url }}" alt="image">
+                <h4>{{item.title}}</h4>
+                <p>${{item.price}}</p>
+
+                <button class="button">Check</button>
+
+            </div>
+            {% endfor %}
+        </div>
+</div>
+
 {% endblock content %}

@@ -17,8 +17,6 @@ class Migration(migrations.Migration):
             field=models.ImageField(blank=True, upload_to=''),
         ),
         migrations.AlterField(
-            model_name='items',
-            name='price',
             model_name="items",
             name="image",
             field=models.ImageField(blank=True, upload_to="static/images/"),
