@@ -338,10 +338,11 @@ div.container-fluid {
     margin-left: 20px;
 }
 
-#cardImage{
+#cardImage {
     width: 250px;
     height: 250px;
 }
+
 /*Support*/
 
 #searchLabel {
@@ -395,4 +396,12 @@ div.container-fluid {
 .comfirmation-container h3 {
     text-align: center;
     margin: 100px 0 30px 0;
+}
+
+.card-container {
+    padding-right: 45px;
+}
+
+.card {
+    margin-right: 35px;
 }

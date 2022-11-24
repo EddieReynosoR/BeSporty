@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', 'sans-serif';
 }
 
-div.body{
+div.body {
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -15,38 +15,40 @@ div.body{
     background-color: #EFEFEF;
 }
 
-.slide-container{
+.slide-container {
     max-width: 1120px;
     width: 100%;
     background-color: grey;
     padding: 40px 0;
 }
 
-.slide-content{
+.slide-content {
     margin: 0 40px;
     overflow: hidden;
     border-radius: 25px;
 }
 
-.card{
+.card {
     border-radius: 25px;
     background-color: #FFF;
+    margin-right: 45px;
 }
 
-.image-content, .card-content{
+.image-content,
+.card-content {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 10px 14px;
 }
 
-.image-content{
+.image-content {
     position: relative;
     row-gap: 5px;
     padding: 25px 0;
 }
 
-.overlay{
+.overlay {
     position: absolute;
     left: 0;
     top: 0;
@@ -56,7 +58,8 @@ div.body{
     border-radius: 25px 25px 0 25px;
 }
 
-.overlay::before, .overlay::after{
+.overlay::before,
+.overlay::after {
     content: '';
     position: absolute;
     right: 0;
@@ -66,12 +69,12 @@ div.body{
     background-color: #4070F4;
 }
 
-.overlay::after{
+.overlay::after {
     border-radius: 0 25px 0 0;
     background-color: #FFF;
 }
 
-.card-image{
+.card-image {
     position: relative;
     height: 150px;
     width: 150px;
@@ -80,7 +83,7 @@ div.body{
     padding: 3px;
 }
 
-.card-image .card-img{
+.card-image .card-img {
     height: 100%;
     width: 100%;
     object-fit: cover;
@@ -88,19 +91,19 @@ div.body{
     border: 4px solid #4070F4;
 }
 
-.name{
+.name {
     font-size: 18px;
     font-weight: 500;
     color: #333;
 }
 
-.description{
+.description {
     font-size: 14px;
     color: #707070;
     text-align: center;
 }
 
-.button{
+.button {
     border: none;
     font-size: 16px;
     color: #FFF;
@@ -111,45 +114,47 @@ div.body{
     transition: all 0.3s ease;
 }
 
-.button:hover{
+.button:hover {
     background: #265DF2;
 }
 
-.swiper-navBtn{
+.swiper-navBtn {
     color: #6E93F7;
     transition: color 0.3s ease;
 }
 
-.swiper-navBtn:hover{
+.swiper-navBtn:hover {
     color: #4070F4;
 }
 
-.swiper-navBtn::before, .swiper-navBtn::after{
+.swiper-navBtn::before,
+.swiper-navBtn::after {
     font-size: 40px;
 }
 
-.swiper-button-next{
+.swiper-button-next {
     right: 0;
 }
 
-.swiper-button-prev{
+.swiper-button-prev {
     left: 0;
 }
 
-.swiper-pagination.bullet{
-   background-color: #6E93F7;
-   opacity: 1;
+.swiper-pagination.bullet {
+    background-color: #6E93F7;
+    opacity: 1;
 }
 
-.swiper-pagination.bullet-active{
+.swiper-pagination.bullet-active {
     background-color: #4070F4
 }
 
-@media screen and (max-width: 768px){
-    .slide-content{
+@media screen and (max-width: 768px) {
+    .slide-content {
         margin: 0 10px;
     }
-    .swiper-navBtn{
+
+    .swiper-navBtn {
         display: none;
     }
 }

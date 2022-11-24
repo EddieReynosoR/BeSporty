@@ -67,14 +67,12 @@ class IssueUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
     def test_func(self):
         post_obj = self.get_object()
-        return post_obj.author == self.request.user
 
 
 class IssueDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
-    template_name = "issues/delete.html"
+    template_name = "issues/deleteIssue.html"
     model = Issue
     success_url = reverse_lazy("list")
 
     def test_func(self):
         post_obj = self.get_object()
-        return post_obj.author == self.request.user
