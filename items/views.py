@@ -31,8 +31,8 @@ class ItemUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     fields = ["title", "price", "description", "image"]
 
     def test_func(self):
-        # post_obj = self.get_object()
-        return self.request.user.role.name in ["Agent", "Manager"]
+        post_obj = self.get_object()
+        return post_obj.author == self.request.user
 
 
 class ItemDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
@@ -41,5 +41,5 @@ class ItemDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     success_url = reverse_lazy("list")
 
     def test_func(self):
-        # post_obj = self.get_object()
-        return self.request.user.role.name in ["Agent", "Manager"]
+        post_obj = self.get_object()
+        return post_obj.author == self.request.user

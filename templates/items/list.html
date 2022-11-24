@@ -5,36 +5,49 @@
 {% block content %}
 <h1>Check out the products!</h1>
 
-{% if items_list|length > 0 %}
+<div class="body">
+    {% if items_list|length > 0 %}
 
-<ul>
-    {% for item in items_list %}
-    <div class="card">
-        <div class="card-body">
-            <h4 class="card-title">{{ item.title }}</h4>
-            <h5 class="card-subtitle mb-2 text-muted">Price: {{ item.price}}</h5>
-            <p class="card-text">{{ item.description|truncatechars:500 }}</p>
-            <a href="{% url 'detail' item.id %}" class="card-link">Read more</a>
-            <p class="author-options">
-                <a href="{% url 'edit' item.id %}" class="card-link"><i class="bi bi-file-earmark-plus"></i></a>
-                <a href="{% url 'delete' item.id %}" class="card-link"><i class="bi bi-trash"></i></a>
-            </p>
+    <ul>
+        
+        <div class="slide-container swiper">
+            <div class="slide-content">
+                <div class="card-wrapper swiper-wrapper">
+                    {% for item in items_list %}
+                    <div class="card swiper-slide">
+                        <div class="image-content">
+                            <span class="overlay"></span>
 
+                            <div class="card-image">
+                                <img src="{{ item.image.url }}" alt="image" class="card-img">
+                            </div>
+                        </div>
 
+                        <div class="card-content">
+                            <h2 class="name">{{item.title}}</h2>
+                            <p class="description">{{item.description}}</p>
 
-            <img src="{% static 'images/{{item.image}}' %}" alt="image" id="cardImage">
+                            <button class="button">Watch</button>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
 
+            <div class="swiper-button-next swiper-navBtn"></div>
+            <div class="swiper-button-prev swiper-navBtn"></div>
+            <div class="swiper-pagination"></div>
         </div>
-    </div>
-    <br />
 
-    {% endfor %}
+        
 
-</ul>
+    </ul>
 
-{% else %}
+    {% else %}
 
-<h5>There's no items yet.</h5>
+    <h5>There's no items yet.</h5>
 
-{% endif %}
+    {% endif %}
+
+</div>
 {% endblock content %}
