@@ -1,0 +1,104 @@
+/* Home Carousel */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+div.container-fluid {
+    margin-bottom: 20px;
+}
+
+#carouselExampleIndicators {
+    position: relative;
+    height: 90vh;
+    width: 100%;
+}
+
+#carouselExampleIndicators .carousel-inner {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background: #000;
+}
+
+#carouselExampleIndicators .carousel-inner:before {
+    position: absolute;
+    content: '';
+    background: rgba(0, 0, 0, 0.45);
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+}
+
+#carouselExampleIndicators .carousel-inner .carousel-item {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background: url('https://www.sneakerhdwallpapers.com/wallpapers/2022/nike-sb-dunk-low-valour-blue-wallpaper-retina.jpg') no-repeat center;
+    background-size: cover;
+    background-position: center;
+
+}
+
+#carouselExampleIndicators .carousel-inner .carousel-item:nth-child(2) {
+    background: url('https://wallpaperaccess.com/full/5234177.png') no-repeat center;
+    background-size: cover;
+    background-position: center;
+}
+
+#carouselExampleIndicators .carousel-inner .carousel-item:nth-child(3) {
+    background: url('https://images.pexels.com/photos/1103833/pexels-photo-1103833.jpeg?cs=srgb&dl=pexels-oliver-sj%C3%B6str%C3%B6m-1103833.jpg&fm=jpg') no-repeat center;
+    background-size: cover;
+    background-position: center;
+}
+
+
+#carouselExampleIndicators .carousel-inner .carousel-item .info {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: auto;
+    width: 100%;
+    z-index: 1;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+#carouselExampleIndicators .carousel-inner .carousel-item h1 {
+    color: #fff;
+    height: auto;
+    width: 100%;
+    text-align: center;
+    z-index: 1;
+    font-size: 5.5em;
+    font-weight: 750;
+    /* -webkit-box-reflect: below -25px linear-gradient(transparent, rgba(0,0,0,0.5)); */
+}
+
+#carouselExampleIndicators .carousel-inner .carousel-item p {
+    color: #ccc;
+    height: auto;
+    width: 100%;
+    text-align: center;
+    z-index: 1;
+    font-size: 1.2em;
+    font-weight: 500;
+    /* -webkit-box-reflect: below -25px linear-gradient(transparent, rgba(0,0,0,0.5)); */
+}
+
+
+@media screen and (max-width: 768px) {
+
+    #carouselExampleIndicators {
+        position: relative;
+        height: 70vh;
+        width: 100%;
+    }
+
+    #carouselExampleIndicators .carousel-inner .carousel-item h1 {
+        font-size: 3.8em;
+    }
+
+    #carouselExampleIndicators .carousel-inner .carousel-item p {
+        font-size: 1em;
+    }
+}

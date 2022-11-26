@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Signika+Negative:wght@500&display=swap');
 
+/* Products carousel */
 * {
     margin: 0;
     padding: 0;
@@ -123,17 +124,17 @@ div.body {
 
 .swiper-navBtn {
     color: #6E93F7;
-    background: #6b6b6b;
+    background: #ffffff;
 }
 
 .swiper-navBtn {
-    color: rgb(70, 70, 70);
+    color: rgb(255, 255, 255);
     transition: color 0.3s ease;
 }
 
 .swiper-navBtn:hover {
     color: #4070F4;
-    color: rgb(0, 0, 0);
+    color: rgb(52, 3, 213);
 }
 
 .swiper-navBtn::before,
@@ -173,6 +174,16 @@ div.body {
 
 }
 
+/* Products cards */
+.small-container{
+    max-width: 1080px;
+    margin: auto;
+    padding-left: 25px;
+    padding-right: 25px;
+    align-items: center;
+    justify-content: center;
+}
+
 h3.title {
     text-align: center;
     margin: 0 auto 50px;
@@ -190,7 +201,7 @@ h3.title::after {
     position: absolute;
     bottom: 0;
     left: 50%;
-    transform: translateY(-50%);
+    transform: translateX(-50%);
 }
 
 
@@ -199,6 +210,7 @@ h3.title::after {
     padding: 10px;
     min-width: 200px;
     margin-bottom: 50px;
+    position: relative;
 }
 
 .col-4 h4,
@@ -207,5 +219,21 @@ h3.title::after {
 }
 
 .col-4 img {
-    width: 100%;
+    width: 180px;
+    height: 180px;
+}
+
+@media screen and (max-width: 768px) {
+    
+
+    .small-container{
+        max-width: 1080px;
+        margin: auto;
+        padding-left: 25px;
+        padding-right: 25px;
+        align-items: center;
+        justify-content: center;
+    }
+
+
 }

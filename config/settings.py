@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'pages',
     'issues',
     'items',
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -137,3 +138,5 @@ MEDIA_ROOT = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+AUTH_USER_MODEL = 'accounts.CustomUser'
