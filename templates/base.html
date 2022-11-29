@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/style2.css' %}">
     <link rel="stylesheet" href="{% static 'css/style3.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style4.css' %}">
     <link rel="stylesheet" href="{% static 'css/swiper-bundle.min.css' %}">
 
 
@@ -63,7 +64,37 @@
 
                     </form>
 
-                    <a class="btn btn-outline-success" type="submit" id="signButton" href="{% url 'signup' %}">Sign in</a>
+                    {% if user.is_authenticated %}
+                        
+                        <button class="btn-user" onclick="toggleMenu()"><i class="fa-solid fa-user"></i></button>
+                        
+                        <div class="sub-menu-wrap" id="subMenu">
+                            <div class="sub-menu">
+                                <div class="user-info">
+                                    <h2>{{user.username}}</h2>
+                                </div>
+                                <hr>
+
+                                <a href="#" class="sub-menu-link">
+                                    <i class="fa-solid fa-user-pen"></i><p>Edit Profile</p>
+                                    <span>></span>
+                                </a>
+
+                                <a href="#" class="sub-menu-link">
+                                    <i class="fa-solid fa-info"></i><p>Help & Support</p>
+                                    <span>></span>
+                                </a>
+
+                                <a href="{% url 'logout' %}" class="sub-menu-link">
+                                    <i class="fa-solid fa-right-from-bracket"></i><p>Logout</p>
+                                    <span>></span>
+                                </a>
+
+                            </div>
+                        </div>
+                    {% else %}
+                        <a class="btn btn-outline-success" type="submit" id="signButton" href="{% url 'signup' %}">Sign in</a>
+                    {% endif %}
                 </div>
             </div>
         </nav>
@@ -99,6 +130,10 @@
     <script src="{% static 'js/swiper-bundle.min.js' %}"></script>
 
     <script src="{% static 'js/script.js' %}"></script>
+
+    <script src="{% static 'js/script2.js' %}"></script>
+
+    <script src="https://kit.fontawesome.com/ed449b684f.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

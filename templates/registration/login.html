@@ -1,13 +1,27 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %} Log In {% endblock title %} 
 
 {% block content %} 
-<h1>Log In</h1>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Log In" class="btn btn-primary">
-</form>
-<small>Forgot your password? <a href="{% url 'password_reset' %}">Click here</a> to reset your password.</small>
+<main>
+    <div class="formAllign">
+        <img src="{% static 'images/Imagen2.jpg' %}" alt="image" id="imageForm" />
+        <form method="post" id="signForm">
+            <h2>Log in</h2>
+            {% csrf_token %}
+            <div class="mb-3">
+                <label class="form-label">Username</label>
+                {{form.username}}            
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Password</label>
+                {{form.password}}            
+            </div>
+            <input type="submit" value="Log in" class="btn btn-success">
+        </form>
+    </div>
+    <small>Forgot your password? <a href="{% url 'password_reset' %}">Click here</a> to reset your password.</small>
+</main>
 {% endblock content %} 
