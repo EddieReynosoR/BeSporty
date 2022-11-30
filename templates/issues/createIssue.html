@@ -20,10 +20,13 @@
     <h2 class="message">Any other question you might have just send an email to customer support using the
     following form.</h2>
     <h1>Support Contact </h1>
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="createIssue" class="btn btn-success">
-    </form>
+    <div class="form-issue-container">
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="createIssue" class="btn btn-success">
+        </form>
+    </div>
+    
 </div>
 {% endblock content %}

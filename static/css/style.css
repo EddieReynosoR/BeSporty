@@ -354,7 +354,7 @@ div.container-fluid {
 }
 
 .support-container {
-    margin: 100px 200px 200px 200px;
+    margin: 50px 100px 100px 100px;
 }
 
 .support-container h2 {
@@ -404,4 +404,17 @@ div.container-fluid {
 
 .card {
     margin-right: 35px;
+}
+
+.form-issue-container {
+    padding: 25px;
+    padding-left: 80px;
+    margin-left: 500px;
+    margin-right: 500px;
+}
+
+.details .card {
+    margin-left: 325px;
+    margin-right: 325px;
+    padding: 25px;
 }

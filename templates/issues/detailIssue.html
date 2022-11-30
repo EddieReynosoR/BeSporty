@@ -3,15 +3,18 @@
 {% block title %}{{ issue.title }}{% endblock title %}
 
 {% block content %}
-<div class="post-detail">
-    <h1>{{ issue.title }}</h1>
-    <strong>Created by: {{ issue.requester }}</strong>
-    <h4>{{ issue.status }}</h4>
-    <p>{{ issue.body }}</p>
-    <p class="author-options">
-        <a href="{% url 'editIssue' issue.id %}" class="card-link"><i class="bi bi-file-earmark-plus"></i></a>
-        <a href="{% url 'deleteIssue' issue.id %}" class="card-link"><i class="bi bi-trash"></i></a>
-    </p>
-
+<div class="details">
+    <div class="card">
+        <div class="post-detail">
+            <h1>{{ issue.title }}</h1>
+            <strong>Created by: {{ issue.requester }}</strong>
+            <h4>{{ issue.status }}</h4>
+            <p>{{ issue.body }}</p>
+            <p class="author-options">
+                <a href="{% url 'editIssue' issue.id %}" class="card-link"><i class="bi bi-file-earmark-plus"></i></a>
+                <a href="{% url 'deleteIssue' issue.id %}" class="card-link"><i class="bi bi-trash"></i></a>
+            </p>
+        </div>
+    </div>
 </div>
 {% endblock content %}
