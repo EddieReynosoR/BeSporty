@@ -1,5 +1,7 @@
 nav.navbar.navbar-expand-lg.bg-light {
     font-family: 'Poppins', sans-serif;
+    padding-bottom: 0px;
+    padding-top: 10px;
 }
 
 div.container-fluid {
@@ -41,6 +43,21 @@ div.container-fluid {
 @media(max-width:992px) {
     #signButton {
         margin-top: 10px;
+    }
+
+    .btn-user{
+        margin-top: 10px;
+    }
+
+    .sub-menu-wrap{
+        position: absolute;
+        top: 100%px;
+        right: 0;
+        width: 320px;
+        max-height: 0px;
+        overflow: hidden;
+        transition: max-height 0.5s;
+        z-index: 2;
     }
 }
 

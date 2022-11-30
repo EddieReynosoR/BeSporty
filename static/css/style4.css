@@ -1,0 +1,159 @@
+/* Sign up and Sign in forms */
+main {
+    text-align: center;
+}
+
+#signForm {
+    display: inline-block;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    text-align: left;
+
+    margin: 30px;
+    padding: 50px;
+
+    width: 500px;
+
+    box-shadow: 2px 2px 20px rgb(207, 207, 207);
+
+    border-radius: 15px;
+
+
+}
+
+
+
+#imageForm {
+    border-radius: 10px;
+    margin-right: 20px;
+    width: 270px;
+    height: 320px;
+}
+
+#imageSignin{
+    height: 400px;
+}
+
+.formAllign {
+    justify-content: center;
+    margin-top: 50px;
+    display: flex;
+}
+
+#signupButton {
+    margin-top: 40px;
+    margin-left: 80%;
+    background-color: rgb(0, 193, 0);
+    border-color: rgb(0, 193, 0);
+}
+
+#signupButton:hover {
+    background-color: rgb(5, 138, 0);
+    border-color: rgb(5, 138, 0);
+}
+
+@media (max-width: 910px) {
+    #imageForm {
+        display: none;
+    }
+}
+
+@media (max-width:1040px) {
+    #signupButton {
+        margin-left: 70%;
+    }
+}
+
+
+/* Drop-down Profile */
+.sub-menu-wrap{
+    position: absolute;
+    top: 85%;
+    right: 2px;
+    width: 320px;
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.5s;
+    z-index: 2;
+}
+.sub-menu-wrap.open-menu{
+    max-height: 400px;
+}
+
+.sub-menu{
+    background: rgb(211, 211, 211);
+    padding: 20px;
+    margin: 10px;
+}
+
+.user-info{
+    display: flex;
+    align-items: center;
+}
+.user-info h3{
+    font-weight: 500;
+}
+
+.sub-menu hr{
+    border: 0;
+    height: 1px;
+    width: 100%;
+    background: #ccc;
+    margin: 15px 0 10px;
+}
+
+.sub-menu-link{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #525252;
+    margin: 12px 0;
+}
+
+.sub-menu-link p{
+    width: 100%;
+}
+
+.sub-menu-link i{
+    width: 40px;
+    background: #e5e5e5;
+    border-radius: 50%;
+    padding: 8px;
+    margin-right: 15px;
+}
+
+.sub-menu-link span{
+    font-size: 22px;
+    transition: transform 0.5s;
+}
+
+.sub-menu-link:hover span{
+    transform: translateX(5px);
+}
+
+.sub-menu-link:hover p{
+    font-weight: 600;
+}
+
+.btn-user{
+    width: 40px;
+    height: 40px;
+    background-color: #525252;
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 50%;
+    border: none;
+    text-decoration: none;
+    transition: background 0.5s;
+
+}
+
+
+.btn-user:hover{
+    background-color: #383838;
+}

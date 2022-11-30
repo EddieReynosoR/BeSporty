@@ -10,7 +10,6 @@
 }
 
 div.body {
-    min-height: 100vh;
     min-height: 20vh;
     display: flex;
     align-items: center;
@@ -165,6 +164,7 @@ div.body {
     .slide-content {
         margin: 0 10px;
     }
+
     .swiper-navBtn {
         display: none;
     }
@@ -175,7 +175,7 @@ div.body {
 }
 
 /* Products cards */
-.small-container{
+.small-container {
     max-width: 1080px;
     margin: auto;
     padding-left: 25px;
@@ -224,9 +224,9 @@ h3.title::after {
 }
 
 @media screen and (max-width: 768px) {
-    
 
-    .small-container{
+
+    .small-container {
         max-width: 1080px;
         margin: auto;
         padding-left: 25px;
