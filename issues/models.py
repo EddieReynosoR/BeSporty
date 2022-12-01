@@ -12,10 +12,14 @@ class Issue(models.Model):
     body = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.ForeignKey(Status, on_delete=models.CASCADE, blank=True, null=True)
-
+    author = models.ForeignKey(
+        get_user_model(),
+        on_delete=models.CASCADE,blank=True,default=1
+    )
     def __str__(self):
         return self.title
 
 
     def get_absolute_url(self):
         return reverse('detailIssue', args=[self.id])
+

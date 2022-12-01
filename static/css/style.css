@@ -45,11 +45,11 @@ div.container-fluid {
         margin-top: 10px;
     }
 
-    .btn-user{
+    .btn-user {
         margin-top: 10px;
     }
 
-    .sub-menu-wrap{
+    .sub-menu-wrap {
         position: absolute;
         top: 100%px;
         right: 0;
@@ -426,12 +426,30 @@ div.container-fluid {
 .form-issue-container {
     padding: 25px;
     padding-left: 80px;
-    margin-left: 500px;
-    margin-right: 500px;
+    margin-left: 25%;
 }
 
 .details .card {
     margin-left: 325px;
     margin-right: 325px;
     padding: 25px;
+}
+
+.Title-form {
+    margin-left: 155px;
+}
+
+.btn-form {
+    margin-left: 155px;
+}
+
+@media(max-width:940px) {
+    .card-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 100PX;
+    }
 }

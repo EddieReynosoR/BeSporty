@@ -58,6 +58,11 @@ class IssueCreateView(CreateView):
     template_name = "issues/createIssue.html"
     model = Issue
     fields = ["title", "body"]
+    exclude = ["author"]
+    def form_valid(self, form):
+
+        form.instance.requester = self.request.user
+        return super().form_valid(form)
 
 
 class IssueUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
@@ -67,6 +72,7 @@ class IssueUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
     def test_func(self):
         post_obj = self.get_object()
+        return post_obj.author == self.request.user
 
 
 class IssueDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
@@ -76,3 +82,4 @@ class IssueDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
     def test_func(self):
         post_obj = self.get_object()
+        return post_obj.author == self.request.user

@@ -21,10 +21,19 @@
     following form.</h2>
     <h1>Support Contact </h1>
     <div class="form-issue-container">
-        <form method="POST">
+        <form method="POST" id="signForm">
             {% csrf_token %}
-            {{ form.as_p }}
-            <input type="submit" value="createIssue" class="btn btn-success">
+            <label class="Title-form"> Support Form</label>
+            <div class="mb-3">
+                <label class="form-label">Issue</label>
+                {{form.title}}            
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Describe yor Issue</label>
+                {{form.body}}            
+            </div>
+            <input type="submit" value="Sent" class="btn-from btn btn-dark">
         </form>
     </div>
     
