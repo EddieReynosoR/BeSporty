@@ -3,16 +3,49 @@
 {% block title %}{{ item.title }}{% endblock title %}
 
 {% block content %}
-<div class="post-detail">
-    <h1>{{ item.title }}</h1>
-    <h3>{{ item.price }}</h3>
-    <p>{{ item.description }}</p>
-    
-    <p class="author-options">
-        <a href="{% url 'edit' items.id %}" class="card-link"><i class="bi bi-file-earmark-plus"></i></a>
-        <a href="{% url 'delete' items.id %}" class="card-link"><i class="bi bi-trash"></i></a>
-    </p>
-    
+<div class="small-container single-product">
+    <div class="row">
+        <div class="col-2">
+            <img src="{{ items.image.url }}" alt="imageItem">
+        </div>
+        <div class="col-2">
+            <p>{{items.title}}</p>
+            <h1>{{items.title}}</h1>
+            <h4>{{items.price}}</h4>
+            <select>
+                <option>Select Size</option>
+                <option>XXL</option>
+                <option>XL</option>
+                <option>Large</option>
+                <option>Medium</option>
+                <option>Small</option>
+            </select>
+            <input type="number" value="1">
+            <a href="#" class="btn">Add To Cart</a>
 
+            <h3>Product Details</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet non, sint facilis deleniti amet porro
+                vero hic praesentium ducimus earum sit? Error, quas! Vero quia fuga, asperiores facilis cupiditate
+                rerum?</p>
+        </div>
+    </div>
+</div>
+
+<div class="small-container">
+    <div class="row row-2">
+        <h2>Related Products</h2>
+    </div>
+    <div class="row">
+        {% for item in items_list %}
+        <div class="col-4">
+            <img src="{{ item.image.url }}" alt="image">
+            <h4>{{item.title}}</h4>
+            <p>${{item.price}}</p>
+
+            <a href="{% url 'detail' item.id %}" class="btn button">Check</a>
+
+        </div>
+        {% endfor %}
+    </div>
 </div>
 {% endblock content %}
