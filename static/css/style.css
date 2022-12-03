@@ -1,4 +1,10 @@
-
+header{
+    z-index: 999;
+    box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.06);
+    position: sticky;
+    top: 0;
+    left: 0;
+}
 nav.navbar.navbar-expand-lg.bg-light {
     font-family: 'Poppins', sans-serif;
     padding-bottom: 0px;

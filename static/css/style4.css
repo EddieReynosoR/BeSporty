@@ -32,7 +32,7 @@ main {
     height: 320px;
 }
 
-#imageSignin{
+#imageSignin {
     height: 400px;
 }
 
@@ -68,7 +68,7 @@ main {
 
 
 /* Drop-down Profile */
-.sub-menu-wrap{
+.sub-menu-wrap {
     position: absolute;
     top: 85%;
     right: 2px;
@@ -78,25 +78,27 @@ main {
     transition: max-height 0.5s;
     z-index: 2;
 }
-.sub-menu-wrap.open-menu{
+
+.sub-menu-wrap.open-menu {
     max-height: 400px;
 }
 
-.sub-menu{
+.sub-menu {
     background: rgb(211, 211, 211);
     padding: 20px;
     margin: 10px;
 }
 
-.user-info{
+.user-info {
     display: flex;
     align-items: center;
 }
-.user-info h3{
+
+.user-info h3 {
     font-weight: 500;
 }
 
-.sub-menu hr{
+.sub-menu hr {
     border: 0;
     height: 1px;
     width: 100%;
@@ -104,7 +106,7 @@ main {
     margin: 15px 0 10px;
 }
 
-.sub-menu-link{
+.sub-menu-link {
     display: flex;
     align-items: center;
     text-decoration: none;
@@ -112,11 +114,11 @@ main {
     margin: 12px 0;
 }
 
-.sub-menu-link p{
+.sub-menu-link p {
     width: 100%;
 }
 
-.sub-menu-link i{
+.sub-menu-link i {
     width: 40px;
     background: #e5e5e5;
     border-radius: 50%;
@@ -124,20 +126,20 @@ main {
     margin-right: 15px;
 }
 
-.sub-menu-link span{
+.sub-menu-link span {
     font-size: 22px;
     transition: transform 0.5s;
 }
 
-.sub-menu-link:hover span{
+.sub-menu-link:hover span {
     transform: translateX(5px);
 }
 
-.sub-menu-link:hover p{
+.sub-menu-link:hover p {
     font-weight: 600;
 }
 
-.btn-user{
+.btn-user {
     width: 40px;
     height: 40px;
     background-color: #525252;
@@ -154,6 +156,80 @@ main {
 }
 
 
-.btn-user:hover{
+.btn-user:hover {
     background-color: #383838;
+}
+
+#sm-banner{
+    margin-top: 10px;
+    display: flex;  
+   justify-content: center;
+    flex-wrap: wrap;
+    column-gap: 100px;
+    row-gap: 20px;
+}
+
+/* Products Banners */
+#sm-banner .banner-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background: url("https://www.thesportsman.com/media/images/admin/other/original/SM-Nike-Kobe-6-Grinchjpg.jpg");
+    min-width: 580px;
+    height: 50vh;
+    background-size: cover;
+    background-position: center;
+    padding: 30px;
+}
+
+#sm-banner .banner-box2{
+    background-image: url("https://woar.shop/wp-content/uploads/2021/06/wear-woar.jpg");
+}
+
+#sm-banner .banner-box3{
+    background-image: url("https://img.freepik.com/free-photo/young-basketball-player-team-wearing-sportwear-training-practicing-action-isolated-blue-wall-neon-light_155003-35999.jpg");
+}
+
+#sm-banner .banner-box4{
+    background-image: url("https://cdn.vox-cdn.com/thumbor/ZMhi7l8UltvWfvzmr4utIBR1wws=/1400x1050/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/13418861/CityJerseys_NBA_Ringer.jpg");
+}
+
+#sm-banner h4{
+    color: #fff;
+    font-size: 20px;
+    font-weight: 300;
+}
+
+#sm-banner h2{
+    color: #fff;
+    font-size: 28px;
+    font-weight: 800;
+}
+
+
+#sm-banner span{
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    padding-bottom: 15px;
+}
+
+a.buttonProduct{
+    font-size: 13px;
+    font-weight: 600;
+    padding: 11px 18px;
+    color: #fff;
+    background-color: transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 1px solid #fff;
+    outline: none;
+    transition: 0.2s;
+}
+
+#sm-banner .banner-box:hover .buttonProduct{
+    background: #fff;
+    border: 1px solid #fff;
+    color: #383838;
 }

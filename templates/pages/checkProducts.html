@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}Catalog{% endblock title %}
+
+{% block content %}
+<section id="sm-banner" class="section-p1">
+    <div class="banner-box">
+        <h4>Sneakers</h4>
+        <h2>Basketball</h2>
+        <span>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</span>
+        <a href="{% url 'list' %}" class="btn buttonProduct">Check out</a>
+    </div>
+    <div class="banner-box banner-box2">
+        <h4>Exercise wear</h4>
+        <h2>Look good at the gym!</h2>
+        <span>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</span>
+        <a href="{% url 'list' %}" class="btn buttonProduct">Check out</a>
+    </div>
+
+    <div class="banner-box banner-box3">
+        <h4>Sport wear</h4>
+        <h2>Train like a pro</h2>
+        <span>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</span>
+        <a href="{% url 'list' %}" class="btn buttonProduct">Check out</a>
+    </div>
+
+    <div class="banner-box banner-box4">
+        <h4>Jerseys</h4>
+        <h2>Get the jersey of your favorite teams!</h2>
+        <span>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</span>
+        <a href="{% url 'list' %}" class="btn buttonProduct">Check out</a>
+    </div>
+</section>
+
+
+{% endblock content %}

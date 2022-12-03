@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}{{ item.title }}{% endblock title %}
+{% block title %}{{ items.title }}{% endblock title %}
 
 {% block content %}
 <div class="small-container single-product">
@@ -21,31 +21,21 @@
                 <option>Small</option>
             </select>
             <input type="number" value="1">
-            <a href="#" class="btn">Add To Cart</a>
+
+            <a href="#" class="btn btnOffers"><i class="fa-solid fa-cart-plus"></i></a>
 
             <h3>Product Details</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet non, sint facilis deleniti amet porro
                 vero hic praesentium ducimus earum sit? Error, quas! Vero quia fuga, asperiores facilis cupiditate
-                rerum?</p>
+                rerum?
+            </p>
+
+            <a href="{% url 'list' %}" class="btn btnBack">Go back</a>
         </div>
+
+        
     </div>
 </div>
 
-<div class="small-container">
-    <div class="row row-2">
-        <h2>Related Products</h2>
-    </div>
-    <div class="row">
-        {% for item in items_list %}
-        <div class="col-4">
-            <img src="{{ item.image.url }}" alt="image">
-            <h4>{{item.title}}</h4>
-            <p>${{item.price}}</p>
 
-            <a href="{% url 'detail' item.id %}" class="btn button">Check</a>
-
-        </div>
-        {% endfor %}
-    </div>
-</div>
 {% endblock content %}

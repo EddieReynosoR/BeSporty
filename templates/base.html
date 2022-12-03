@@ -44,7 +44,7 @@
                             <a class="nav-link" aria-current="page" href="{% url 'home' %}">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'list' %}">Products</a>
+                            <a class="nav-link" href="{% url 'products' %}">Catalog</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'create' %}">Post item</a>
@@ -65,35 +65,39 @@
                     </form>
 
                     {% if user.is_authenticated %}
-                        
-                        <button class="btn-user" onclick="toggleMenu()"><i class="fa-solid fa-user"></i></button>
-                        
-                        <div class="sub-menu-wrap" id="subMenu">
-                            <div class="sub-menu">
-                                <div class="user-info">
-                                    <h2>{{user.username}}</h2>
-                                </div>
-                                <hr>
 
-                                <a href="#" class="sub-menu-link">
-                                    <i class="fa-solid fa-user-pen"></i><p>Edit Profile</p>
-                                    <span>></span>
-                                </a>
+                    <button class="btn-user" onclick="toggleMenu()"><i class="fa-solid fa-user"></i></button>
 
-                                <a href="#" class="sub-menu-link">
-                                    <i class="fa-solid fa-info"></i><p>Help & Support</p>
-                                    <span>></span>
-                                </a>
-
-                                <a href="{% url 'logout' %}" class="sub-menu-link">
-                                    <i class="fa-solid fa-right-from-bracket"></i><p>Logout</p>
-                                    <span>></span>
-                                </a>
-
+                    <div class="sub-menu-wrap" id="subMenu">
+                        <div class="sub-menu">
+                            <div class="user-info">
+                                <h2>{{user.username}}</h2>
                             </div>
+                            <hr>
+
+                            <a href="#" class="sub-menu-link">
+                                <i class="fa-solid fa-user-pen"></i>
+                                <p>Edit Profile</p>
+                                <span>></span>
+                            </a>
+
+                            <a href="#" class="sub-menu-link">
+                                <i class="fa-solid fa-info"></i>
+                                <p>Help & Support</p>
+                                <span>></span>
+                            </a>
+
+                            <a href="{% url 'logout' %}" class="sub-menu-link">
+                                <i class="fa-solid fa-right-from-bracket"></i>
+                                <p>Logout</p>
+                                <span>></span>
+                            </a>
+
                         </div>
+                    </div>
                     {% else %}
-                        <a class="btn btn-outline-success" type="submit" id="signButton" href="{% url 'signup' %}">Sign in</a>
+                    <a class="btn btn-outline-success" type="submit" id="signButton" href="{% url 'signup' %}">Sign
+                        in</a>
                     {% endif %}
                 </div>
             </div>
@@ -101,6 +105,8 @@
     </header>
 
     {% block content %}{% endblock content %}
+
+
 
 
     <footer>

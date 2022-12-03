@@ -347,3 +347,11 @@ input:focus{
     }
 }
 
+.btnBack{
+    display: inline-block;
+    background: red;
+    color: #fff;
+    padding: 8px 30px;
+    margin: 30px 0;
+    border-radius: 30px;
+}
