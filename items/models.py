@@ -1,7 +1,7 @@
 from django.db import models
 from django.urls import reverse
 
-<<<<<<< HEAD
+
 
 # Create your models here.
 class Type(models.Model):
@@ -11,8 +11,7 @@ class Type(models.Model):
         return self.name
 
 
-=======
->>>>>>> bf816d53593a647ed0c2828019d73963b63cc9a3
+
 class Items(models.Model):
     title = models.CharField(max_length=256)
     price = models.DecimalField(decimal_places=2, max_digits= 10)
