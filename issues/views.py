@@ -78,7 +78,7 @@ class IssueUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 class IssueDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     template_name = "issues/deleteIssues.html"
     model = Issue
-    success_url = reverse_lazy("list")
+    success_url = reverse_lazy("listIssue")
 
     def test_func(self):
         post_obj = self.get_object()
