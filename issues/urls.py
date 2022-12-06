@@ -7,6 +7,6 @@ urlpatterns = [
     path('<int:pk>/', IssueDetailView.as_view(), name='detailIssue'),
     path('createIssue/', IssueCreateView.as_view(), name="createIssue"),
     path('<int:pk>/editIssue/', IssueUpdateView.as_view(), name="editIssue"),
-    path('<int:pk>/deleteIssue/', IssueDeleteView.as_view(), name="deleteIssue"),
+    path('<int:pk>/deleteIssues/', IssueDeleteView.as_view(), name="deleteIssues"),
     path('', IssueListView.as_view(), name='listIssue'),
 ]
