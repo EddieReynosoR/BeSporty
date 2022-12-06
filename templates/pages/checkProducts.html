@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}Catalog{% endblock title %}
 
@@ -8,29 +9,46 @@
         <h4>Sneakers</h4>
         <h2>Basketball</h2>
         <span>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</span>
-        <a href="{% url 'list' %}" class="btn buttonProduct">Check out</a>
+        <a href="{% url 'list_sneakers' %}" class="btn buttonProduct">Check out</a>
     </div>
     <div class="banner-box banner-box2">
         <h4>Exercise wear</h4>
         <h2>Look good at the gym!</h2>
         <span>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</span>
-        <a href="{% url 'list' %}" class="btn buttonProduct">Check out</a>
+        <a href="{% url 'list_exercise' %}" class="btn buttonProduct">Check out</a>
     </div>
 
     <div class="banner-box banner-box3">
         <h4>Sport wear</h4>
         <h2>Train like a pro</h2>
         <span>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</span>
-        <a href="{% url 'list' %}" class="btn buttonProduct">Check out</a>
+        <a href="{% url 'list_sport' %}" class="btn buttonProduct">Check out</a>
     </div>
 
     <div class="banner-box banner-box4">
         <h4>Jerseys</h4>
         <h2>Get the jersey of your favorite teams!</h2>
         <span>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</span>
-        <a href="{% url 'list' %}" class="btn buttonProduct">Check out</a>
+        <a href="{% url 'list_jerseys' %}" class="btn buttonProduct">Check out</a>
     </div>
 </section>
+
+<div class="offer">
+    <div class="small-container">
+        <div class="row">
+            <div class="col-2">
+                <img src="{% static 'images/kyrie.png' %}" alt="image">
+            </div>
+            <div class="col-2">
+                <p>Exclusive offers for premium users!</p>
+                <h1>Best prices of the market</h1>
+                <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem error eum iure optio laborum magnam.</small>
+                <br>
+                <a href="#" class="btn btnOffers">Explore Now &#8594;</a>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 {% endblock content %}

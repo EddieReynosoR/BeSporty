@@ -20,7 +20,7 @@
                 <option>Medium</option>
                 <option>Small</option>
             </select>
-            <input type="number" value="1">
+            <input type="number" value="1" min="1" max="100">
 
             <a href="#" class="btn btnOffers"><i class="fa-solid fa-cart-plus"></i></a>
 
@@ -29,11 +29,37 @@
                 vero hic praesentium ducimus earum sit? Error, quas! Vero quia fuga, asperiores facilis cupiditate
                 rerum?
             </p>
+           
+            {% if items.type.name == 'Jerseys' %}
+                <a href="{% url 'list_jerseys' %}" class="btn btnBack">Go back</a>
 
-            <a href="{% url 'list' %}" class="btn btnBack">Go back</a>
+                {%else%}
+                {% if items.type.name == "Sport" %}
+                <a href="{% url 'list_sport' %}" class="btn btnBack">Go back</a>
+
+                    {%else%}
+                    {% if items.type.name == "Sneakers" %}
+                    <a href="{% url 'list_sneakers' %}" class="btn btnBack">Go back</a>
+
+                    {%else%}
+                        {% if items.type.name == "Exercise" %}
+                        <a href="{% url 'list_exercise' %}" class="btn btnBack">Go back</a>
+                        {% endif %}
+                    
+                    {% endif %}
+
+                {% endif %}
+                
+            {% endif %}
+
+            
+
+            
+
+           
         </div>
 
-        
+
     </div>
 </div>
 
