@@ -7,6 +7,9 @@ class Status(models.Model):
     name = models.CharField(max_length=128)
     description = models.CharField(max_length=256)
 
+    def __str__(self):
+        return self.name
+
 class Issue(models.Model):
     title = models.CharField(max_length=256)
     body = models.TextField()
