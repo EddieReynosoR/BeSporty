@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %} User confirmation {% endblock title %} 
+
+{% block content %} 
+<div class="confirm-container">
+    <div class="formAllign">
+        <div class="card-body">
+            <h3>We have sent you an email</h3>
+            <p>Please check your email</p>
+            <a href="{% url 'login' %}">Login</a>
+        </div>
+    </div>
+</div>
+{% endblock content %} 

@@ -7,7 +7,7 @@ def populate_status(apps, schemaeditor):
         "In progress": "An issue that is currently being solved.",
         "Done": "An issue that is already solved."
     }
-    Status = apps.get_model("Issues", "Status")
+    Status = apps.get_model("issues", "Status")
 
     for name, desc in entries.items():
         status_obj = Status(name=name, description=desc)

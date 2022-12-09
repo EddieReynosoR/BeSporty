@@ -17,3 +17,9 @@ class CustomUser(AbstractUser):
         blank = True,
         null = True
     )
+    auth_token = models.CharField(max_length=100, default=False)
+    is_verified = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.username

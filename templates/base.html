@@ -27,6 +27,7 @@
 </head>
 
 <body>
+    
     <header>
         <nav class="navbar navbar-expand-lg bg-light">
             <div class="container-fluid">
@@ -49,11 +50,6 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'create' %}">Post item</a>
                         </li>
-
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'createIssue' %}">Support</a>
-                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'listIssue' %}">List Support</a>
                         </li>
@@ -71,7 +67,10 @@
                     <div class="sub-menu-wrap" id="subMenu">
                         <div class="sub-menu">
                             <div class="user-info">
-                                <h2>{{user.username}}</h2>
+                                <h2>{{user.username}}</h2>                             
+                            </div>
+                            <div class="user-info">
+                                <p>Is verified: {{user.is_verified}}</p>                             
                             </div>
                             <hr>
 
@@ -81,7 +80,7 @@
                                 <span>></span>
                             </a>
 
-                            <a href="#" class="sub-menu-link">
+                            <a href="{% url 'createIssue' %}" class="sub-menu-link">
                                 <i class="fa-solid fa-info"></i>
                                 <p>Help & Support</p>
                                 <span>></span>
@@ -96,7 +95,7 @@
                         </div>
                     </div>
                     {% else %}
-                    <a class="btn btn-outline-success" type="submit" id="signButton" href="{% url 'signup' %}">Sign
+                    <a class="btn btn-outline-success" type="submit" id="signButton" href="{% url 'registration' %}">Sign
                         in</a>
                     {% endif %}
                 </div>

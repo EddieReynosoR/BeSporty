@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'issues',
     'items',
     'accounts',
+    'django_email_verification',
 ]
 
 MIDDLEWARE = [
@@ -142,3 +143,17 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 AUTH_USER_MODEL = 'accounts.CustomUser'
 
 LOGIN_REDIRECT_URL = 'home'
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.RemoteUserBackend',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'besportyinc@gmail.com'
+EMAIL_HOST_PASSWORD = 'ghhpzpilvtpbmydm'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = ''
