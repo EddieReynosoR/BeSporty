@@ -1,15 +1,15 @@
 {% extends 'base.html' %}
+{% load static %}
 
-{% block title %} User confirmation {% endblock title %} 
+{% block title %} User confirmation {% endblock title %}
 
-{% block content %} 
-<div class="confirm-container">
-    <div class="formAllign">
-        <div class="card-body">
-            <h3>We have sent you an email</h3>
-            <p>Please check your email</p>
-            <a href="{% url 'login' %}">Login</a>
-        </div>
+{% block content %}
+<div class="success-container">
+    <div class="show-success">
+        <img src="{% static 'images/email.jpg' %}" alt="image">
+        <h2>Verify your account!</h2>
+        <p>We have sent you an mail, check your email to verify your account.</p>
+        <a href="{% url 'home' %}" class="btn button">Ok</a>
     </div>
 </div>
-{% endblock content %} 
+{% endblock content %}

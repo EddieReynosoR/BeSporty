@@ -43,7 +43,7 @@ def RegistrationView(request):
             [email],
             fail_silently=False,
         )
-        return HttpResponse('The mail has been sent!')
+        return render(request, 'registration/token.html', {})
 
     return render(request, 'registration/signup.html', {'form': form})
 
@@ -63,7 +63,7 @@ def SendEmail(request):
         [email],
         fail_silently=False,
     )
-    return HttpResponse('The mail has been sent!')
+    return render(request, 'registration/token.html', {})
 
 
 def Verify(request, token):
@@ -72,7 +72,7 @@ def Verify(request, token):
         if user:
             user.update(is_verified = True)
             # msg = 'Your email has been verified'
-        return HttpResponse('Your account has been verified!') 
+        return render(request, 'registration/success.html', {})
                 
     except Exception as e:
         return render(request, 'registration/success.html', {'msg':e})

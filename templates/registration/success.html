@@ -1,7 +1,15 @@
 {% extends 'base.html' %}
+{% load static %}
 
-{% block title %} User confirmation {% endblock title %} 
+{% block title %} User confirmation {% endblock title %}
 
-{% block content %} 
-{{ msg }}
-{% endblock content %} 
+{% block content %}
+<div class="success-container">
+    <div class="show-success">
+        <img src="{% static 'images/404-tick.png' %}" alt="image">
+        <h2>Thank you!</h2>
+        <p>Your account has been successfully verified.</p>
+        <a href="{% url 'home' %}" class="btn button">Ok</a>
+    </div>
+</div>
+{% endblock content %}
