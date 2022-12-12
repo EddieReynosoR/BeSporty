@@ -4,6 +4,7 @@ header {
     position: sticky;
     top: 0;
     left: 0;
+    display: block;
 }
 
 nav.navbar.navbar-expand-lg.bg-light {

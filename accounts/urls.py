@@ -8,4 +8,5 @@ urlpatterns = [
     path('verifyEmail/', TokenView.as_view(), name='token'),
     path('verify/<str:token>', views.Verify),
     path('sendEmail/', views.SendEmail, name='sendEmail' ),
+    path('loginForm/', views.Login, name='loginForm')
 ]

@@ -6,12 +6,10 @@ from .models import *
 from django.views.generic.edit import CreateView
 from django.views.generic import TemplateView
 from .forms import RegistrationForm
-import uuid
 from django.contrib.sites.shortcuts import get_current_site
 import random
 from django.core.mail import send_mail
 from django.conf import settings
-from django.http import HttpResponse
 from django.contrib.auth import authenticate, login, logout
 
 from django.urls import reverse_lazy
@@ -25,7 +23,7 @@ def RegistrationView(request):
         address = request.POST.get("address")
         password = request.POST.get("password1")
         
-
+    
         domain_name = get_current_site(request).domain
         token = str(random.random()).split('.')[1]
 
@@ -46,6 +44,28 @@ def RegistrationView(request):
         return render(request, 'registration/token.html', {})
 
     return render(request, 'registration/signup.html', {'form': form})
+
+def Login(request):
+    
+
+    if request.method == 'POST':
+        username = request.POST["username"]
+        password = request.POST["password"]
+        
+        
+        user = authenticate(request, username = username, password = password)
+        if user is None:
+            messages.success(request, 'Something is wrong with the user. Check if the username or password are correct.')
+            return redirect('loginForm')
+
+        elif not user.is_verified:
+            messages.success(request, 'User not verified check the email that you entered.')
+            return redirect('loginForm')
+        else:
+            login(request, user)
+            return redirect('home')
+
+    return render(request, 'registration/login.html', {})
 
 def SendEmail(request):
     

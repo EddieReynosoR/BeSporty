@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'base2.html' %}
 {% load static %}
 
 
@@ -10,6 +10,13 @@
         <img src="{% static 'images/Imagen1.jpg' %}" alt="image" id="imageForm" />
         <form method="post" id="signForm">
             <h2>Join the family!</h2>
+            {% if messages %}
+                {% for message in messages %}
+                <div class="alert alert-info">
+                    {{ message }}
+                </div>
+                {% endfor %}
+            {% endif %}
             {% csrf_token %}       
             <div class="mb-3">
                 <label class="form-label">Username</label>
@@ -43,7 +50,7 @@
             <input type="submit" value="Sign Up" class="btn btn-success">
         </form>
     </div>
-    <small>Already have an account? <a href="{% url 'login' %}">Click here</a> to log in.</small>
+    <small>Already have an account? <a href="{% url 'loginForm' %}">Click here</a> to log in.</small>
 
 </main>
 {% endblock content %}

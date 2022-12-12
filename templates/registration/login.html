@@ -1,27 +1,34 @@
-{% extends 'base.html' %}
+{% extends 'base2.html' %}
 {% load static %}
 
-{% block title %} Log In {% endblock title %} 
+{% block title %} Log In {% endblock title %}
 
-{% block content %} 
+{% block content %}
 <main>
     <div class="formAllign">
         <img src="{% static 'images/Imagen2.jpg' %}" alt="image" id="imageForm" />
         <form method="post" id="signForm">
             <h2>Log in</h2>
+            {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-info">
+                {{ message }}
+            </div>
+            {% endfor %}
+            {% endif %}
             {% csrf_token %}
             <div class="mb-3">
                 <label class="form-label">Username</label>
-                {{form.username}}            
+                <input type="text" name="username">
             </div>
 
             <div class="mb-3">
                 <label class="form-label">Password</label>
-                {{form.password}}            
+                <input type="password" name="password">
             </div>
             <input type="submit" value="Log in" class="btn btn-success">
         </form>
     </div>
     <small>Forgot your password? <a href="{% url 'password_reset' %}">Click here</a> to reset your password.</small>
 </main>
-{% endblock content %} 
+{% endblock content %}

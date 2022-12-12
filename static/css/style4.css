@@ -160,10 +160,10 @@ main {
     background-color: #383838;
 }
 
-#sm-banner{
+#sm-banner {
     margin-top: 10px;
-    display: flex;  
-   justify-content: center;
+    display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     column-gap: 100px;
     row-gap: 20px;
@@ -183,39 +183,39 @@ main {
     padding: 30px;
 }
 
-#sm-banner .banner-box2{
+#sm-banner .banner-box2 {
     background-image: url("https://woar.shop/wp-content/uploads/2021/06/wear-woar.jpg");
 }
 
-#sm-banner .banner-box3{
+#sm-banner .banner-box3 {
     background-image: url("https://img.freepik.com/free-photo/young-basketball-player-team-wearing-sportwear-training-practicing-action-isolated-blue-wall-neon-light_155003-35999.jpg");
 }
 
-#sm-banner .banner-box4{
+#sm-banner .banner-box4 {
     background-image: url("https://cdn.vox-cdn.com/thumbor/ZMhi7l8UltvWfvzmr4utIBR1wws=/1400x1050/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/13418861/CityJerseys_NBA_Ringer.jpg");
 }
 
-#sm-banner h4{
+#sm-banner h4 {
     color: #fff;
     font-size: 20px;
     font-weight: 300;
 }
 
-#sm-banner h2{
+#sm-banner h2 {
     color: #fff;
     font-size: 28px;
     font-weight: 800;
 }
 
 
-#sm-banner span{
+#sm-banner span {
     color: #fff;
     font-size: 14px;
     font-weight: 500;
     padding-bottom: 15px;
 }
 
-a.buttonProduct{
+a.buttonProduct {
     font-size: 13px;
     font-weight: 600;
     padding: 11px 18px;
@@ -228,8 +228,62 @@ a.buttonProduct{
     transition: 0.2s;
 }
 
-#sm-banner .banner-box:hover .buttonProduct{
+#sm-banner .banner-box:hover .buttonProduct {
     background: #fff;
     border: 1px solid #fff;
     color: #383838;
+}
+
+/* Results box */
+.results-card {
+    width: 40%;
+    max-height: 200px;
+    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.25);
+    background: #fff;
+    transition: 0.5s;
+    border-radius: 7px;
+    padding: 15px 15px;
+    margin-top: 5px;
+    position: absolute;
+    z-index: 2;
+    right: 0;
+
+    overflow-y: scroll;
+}
+
+.not-visible {
+    display: none;
+}
+
+.item {
+    text-decoration: none;
+}
+
+img.item-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.border {
+    border-bottom: 1px solid #383838;
+}
+
+
+@media(max-width:992px) {
+    .results-card {
+        width: 40%;
+        height: 400px;
+        box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.25);
+        background: #fff;
+        transition: 0.5s;
+        border-radius: 7px;
+        padding: 15px 15px;
+        margin-top: 5px;
+        position: absolute;
+        z-index: 2;
+        left: 0;
+
+        overflow-y: scroll;
+    }
 }

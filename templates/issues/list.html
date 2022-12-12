@@ -1,39 +1,38 @@
-{% extends 'base.html' %}
+{% extends 'base2.html' %}
 
 {% block title %}Issues{% endblock title %}
 
 {% block content %}
-    <h1>All Issues</h1>
+<h1>All Issues</h1>
 
-    {% if issue_list|length > 0 %}
+{% if issue_list|length > 0 %}
 
-        <ul class="card-container">
-            {% for issue in issue_list %}
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title">{{ issue.title }}</h4>
-                    <h6 class="card-subtitle mb-2 text-muted">Status: {{ issue.status}}</h6>
-                    <h6 class="card-subtitle mb-2 text-muted">Assignee: {{ issue.assignee }}</h6>
-                    <p class="card-text">{{ issue.body|truncatechars:500 }}</p>
-                    <a href="{% url 'detailIssue' issue.id %}" class="card-link">Read more</a>
-                    {% if user.role.name == "Agent" or user.role.name == "Manager" %}
-                    <p class="author-options">
-                        <a href="{% url 'editiIssue' issue.id %}" class="card-link"><i class="bi bi-file-earmark-plus"></i></a>
-                        <a href="{% url 'deleteIssues' issue.id %}" class="card-link"><i class="bi bi-trash"></i></a>
-                    </p>
-                    {% endif %}
-                </div>
-            </div>
-            <br />
-                
-            {% endfor %}
+<ul class="card-container">
+    {% for issue in issue_list %}
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">{{ issue.title }}</h4>
+            <h6 class="card-subtitle mb-2 text-muted">Status: {{ issue.status}}</h6>
+            <h6 class="card-subtitle mb-2 text-muted">Assignee: {{ issue.assignee }}</h6>
+            <p class="card-text">{{ issue.body|truncatechars:500 }}</p>
+            <a href="{% url 'detailIssue' issue.id %}" class="card-link">Read more</a>
+            {% if user.role.name == "Agent" or user.role.name == "Manager" %}
+            <p class="author-options">
+                <a href="{% url 'editiIssue' issue.id %}" class="card-link"><i class="bi bi-file-earmark-plus"></i></a>
+                <a href="{% url 'deleteIssues' issue.id %}" class="card-link"><i class="bi bi-trash"></i></a>
+            </p>
+            {% endif %}
+        </div>
+    </div>
+    <br />
 
-        </ul>
+    {% endfor %}
 
-    {% else %}
+</ul>
 
-        <h5>There's no issues yet.</h5>
+{% else %}
 
-    {% endif %}
+<h5>There's no issues yet.</h5>
+
+{% endif %}
 {% endblock content %}
-

@@ -1,9 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.urls import reverse_lazy
 from .models import Items, Type
+from django.http import JsonResponse
 
 # Create your views here.
 
@@ -85,4 +86,23 @@ class ItemDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         post_obj = self.get_object()
         return post_obj.author == self.request.user
 
-
+def search_results(request):
+    if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+        res = None
+        item = request.POST.get('item')
+        qs = Items.objects.filter(title__icontains = item)   
+        if len(qs)>0 and len(item)>0:
+            data = []
+            for pos in qs:
+                item = {
+                    'pk': pos.pk,
+                    'title': pos.title,
+                    'type': pos.type.name,
+                    'image': str(pos.image.url)
+                }
+                data.append(item)
+            res = data
+        else:
+            res = 'No items found ...'
+        return JsonResponse({'data': res})
+    return JsonResponse({})
