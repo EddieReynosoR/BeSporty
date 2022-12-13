@@ -3,24 +3,66 @@
 {% block title %}Support {% endblock title %}
 
 {% block content %}
-<div class="support-container">
-    <h2>Frecuent Questions</h2>      
-        <div class="Questions-container">
-            <h3>How to cancel the order?</h3>
-                <h4>You need to send an email to the following address example@hotmail.com,
-                with the folio that was sent to the email when you comfirmed the purchase.</h4>
-    
-            <h3>Can you return the products?</h3>
-                <h4>Yes you can, but you need to give it we no visible damage and properly packaged</h4>
-    
-            <h3>Can you erase your account?</h3>
-                <h4>Yes you can, jusy go yo the settings, in profile select data, and click the button
-                delete account, then confirm..</h4>
+<h2>Frecuent Questions</h2>
+<div class="Questions-container">
+    <h3>How to cancel the order?</h3>
+    <p>You need to send an email to the following address example@hotmail.com,
+        with the folio that was sent to the email when you comfirmed the purchase.</p>
+
+    <h3>Can you return the products?</h3>
+    <p>Yes you can, but you need to give it we no visible damage and properly packaged</p>
+
+    <h3>Can you erase your account?</h3>
+    <p>Yes you can, jusy go yo the settings, in profile select data, and click the button
+        delete account, then confirm..</p>
+</div>
+
+<h1>Support Contact </h1>
+<div class="support-body">
+
+    <div class="support-container">
+        <div class="support-content">
+            <div class="support-left">
+                <div class="address details">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div class="topic">Address</div>
+                    <div class="text-one">Tijuana, B.C, Mexico</div>
+                    <div class="text-two">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</div>
+                </div>
+                <div class="phone details">
+                    <i class="fas fa-phone-alt"></i>
+                    <div class="topic">Phone</div>
+                    <div class="text-one">+52 663 999 9999</div>
+                    <div class="text-two">+99 999 999 9999</div>
+                </div>
+                <div class="email details">
+                    <i class="fas fa-envelope"></i>
+                    <div class="topic">Email</div>
+                    <div class="text-one">besportyinc@gmail.com</div>
+                </div>
+            </div>
+            <div class="support-right">
+                <div class="support-topic">Send us a message</div>
+                <p>Any other question you might have just send an email to customer support using the following form.
+                </p>
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="input-box">
+                        <label class="form-label">Issue</label>
+                        <input type="text" name="title" placeholder="Enter your issue">
+                    </div>
+
+                    <div class="input-box">
+                        <label class="form-label">Describe yor Issue</label>
+                        <br>
+                        {{form.body}}
+                    </div>
+                    <input type="submit" value="Send" class="btn-from btn btn-dark">
+                </form>
+            </div>
         </div>
-    <h2 class="message">Any other question you might have just send an email to customer support using the
-    following form.</h2>
-    <h1>Support Contact </h1>
-    <div class="form-issue-container">
+    </div>
+    <!-- <div class="form-issue-container">
         <form method="POST" id="signForm">
             {% csrf_token %}
             <label class="Title-form"> Support Form</label>
@@ -35,7 +77,7 @@
             </div>
             <input type="submit" value="Sent" class="btn-from btn btn-dark">
         </form>
-    </div>
-    
+    </div> -->
+
 </div>
 {% endblock content %}
