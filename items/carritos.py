@@ -19,6 +19,7 @@ class Cart:
                 "price_acum": float(item.price),
                 "type": item.type.name,
                 "quantity": 1,
+                "size": item.size.sizeName,
             }
         else:
             self.cart[id]["quantity"] +=1
@@ -39,9 +40,9 @@ class Cart:
         id = str(item.id)
         if id in self.cart.keys():
             self.cart[id]["quantity"] -= 1
-            self.cart[id]["price_acum"] -= item.price
+            self.cart[id]["price_acum"] -= float(item.price)
 
-            if self.cart["quantity"] <= 0: self.delete() 
+            if self.cart[id]["quantity"] <= 0: self.delete(item) 
             self.saveCart()
 
     def clean(self):
