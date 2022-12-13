@@ -1,11 +1,14 @@
-from django.shortcuts import render, get_object_or_404
+
+
 from django.views.generic import ListView, DetailView
+from django.shortcuts import render, redirect, get_object_or_404
+from django.views.generic import ListView, DetailView, TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.urls import reverse_lazy
 from .models import Items, Type
 from django.http import JsonResponse
-
+from .carritos import Cart
 # Create your views here.
 
 class ItemsListView(ListView):
@@ -106,3 +109,34 @@ def search_results(request):
             res = 'No items found ...'
         return JsonResponse({'data': res})
     return JsonResponse({})
+
+#Cart functions
+def store(request):
+    itemsCart = Items.objects.all()
+    return render(request, "base.html", {'items': itemsCart})
+
+def addItem(request, item_id):
+    cart = Cart(request)
+    item = Items.objects.get(id=item_id)
+    cart.add(item)
+    return redirect("list")
+
+def deleteItem(request, item_id):
+    cart = Cart(request)
+    item = Items.objects.get(id=item_id)
+    cart.delete(item)
+    return redirect("list")
+
+def substractItem(request, item_id):
+    cart = Cart(request)
+    item = Items.objects.get(id=item_id)
+    cart.substractItem(item)
+    return redirect("list")
+
+def clean(request):
+    cart = Cart(request)
+    cart.clean()
+    return redirect("list")
+
+class CartPage(TemplateView):
+    template_name = "items/cart.html"

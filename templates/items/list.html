@@ -63,6 +63,7 @@
                     <p>${{item.price}}</p>
 
                     <a href="{% url 'detail' item.id %}" class="btn button">Check</a>
+                   
 
                 </div>
                 {% endfor %}
@@ -74,8 +75,5 @@
                 {% endif %}
             </div>
     </div>
-
-
-
 
     {% endblock content %}

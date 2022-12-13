@@ -102,3 +102,7 @@ div.container-fluid {
         font-size: 1em;
     }
 }
+
+.card-marg {
+    margin-top: 75px;
+}
