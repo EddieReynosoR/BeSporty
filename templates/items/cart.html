@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Cart{% endblock title %}
+    {% block content %}
+    <div class="alert alert-primary" role="alert">
+        <table class="table table-striped table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th scope="row" colspan="3" class="text-center">CART</th>
+                </tr>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if request.session.cart.items %}
+                {% for key, value in request.session.cart.items %}
+                <tr>
+                    <td>{{value.name}}</td>
+                    <td>{{value.price_acum}}</td>
+                    <td>{{value.quantity}}
+                            <a href="{% url 'Add' value.item_id %}" class="badge btn btn-dark badge-dark">+</a>
+                            <a href="{% url 'substract' value.item_id %}" class="badge btn btn-dark badge-dark">-</a>
+                    </td>
+                </tr>
+                {% endfor %}
+                {% else %}
+                <tr>
+                    <td colspan="3">
+                        <div class="alert alert-danger text-center">No products yet.</div>
+                    </td>
+                </tr>
+                {% endif %}
+                <tr>
+                    <th scope="row">Total:</th>
+                    <td colspan="2">{{total_cost}}</td>
+                </tr>
+            </tbody>
+            <hr>
+
+            <div>
+                <div class="row text-center">
+                    <div class="col-6"><a href="{% url 'clean' %}" class="btn btn-danger">Clean</a></div>
+                    <div class="col-6"><a href="#" class="btn btn-success">Buy</a></div>
+                </div>
+            </div>
+        </table>
+    </div> 
+    
+    {% endblock content %}

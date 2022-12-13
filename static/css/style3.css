@@ -230,4 +230,9 @@ div.container-fluid {
         width: 100%;
         margin-left: 0;
     }
+
+.card-marg {
+    margin-top: 75px;
+
+}
 }

@@ -286,4 +286,6 @@ img.item-img {
 
         overflow-y: scroll;
     }
-}
+.card-marg {
+    margin-top: 75px;
+}}
