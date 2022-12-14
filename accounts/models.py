@@ -1,5 +1,7 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
+#from base.models import BaseModel
+from django.contrib.auth.models import AbstractUser, User
+from items.models import Items
 
 # Create your models here.
 class Type(models.Model):
@@ -23,3 +25,12 @@ class CustomUser(AbstractUser):
 
     def __str__(self):
         return self.username
+
+#class Cart(BaseModel):
+#    user = models.ForeignKey(User, on_delete=models.CASCADE,related_name='carts')
+ #   is_paid = models.BooleanField(default=False)
+
+#class CartItems(BaseModel):
+ #   cart = models.ForeignKey(Cart, on_delete=models.CASCADE, related_name="cart_items")
+  #  products = models.ForeignKey(Items, on_delete=models.SET_NULL,null= True, blank=True, null= True)
+   # size_variant = models.ForeignKey(Size, on_delete=models.

@@ -5,4 +5,3 @@ from .models import Items, Type, Size
 
 admin.site.register(Items)
 admin.site.register(Type)
-admin.site.register(Size)
