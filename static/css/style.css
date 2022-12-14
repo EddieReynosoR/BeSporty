@@ -16,18 +16,29 @@ div.container-fluid {
     justify-content: space-between;
 }
 
-.cart{
+.cart {
     margin-left: 10px;
     margin-right: 10px;
 }
 
 #signButton {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    border-color: black;
+    border-radius: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-right: 10px;
+}
+
+#loginButton {
     background-color: black;
     color: white;
     border-color: black;
     border-radius: 20px;
     padding-left: 30px;
     padding-right: 30px;
+    margin-right: 10px;
 }
 
 #checkButton {
@@ -47,6 +58,12 @@ div.container-fluid {
     border-color: gray;
 }
 
+#loginButton:hover {
+    background-color: gray;
+    color: white;
+    border-color: gray;
+}
+
 #checkButton:hover {
     background-color: gray;
     color: white;
@@ -55,6 +72,10 @@ div.container-fluid {
 
 @media(max-width:992px) {
     #signButton {
+        margin-top: 10px;
+    }
+
+    #loginButton{
         margin-top: 10px;
     }
 
@@ -515,6 +536,7 @@ div.show-success a {
     cursor: pointer;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
+
 .card-marg {
     margin-top: 75px;
 }

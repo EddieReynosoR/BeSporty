@@ -3,43 +3,48 @@
 
 {% block content %}
 
-<h1>Edit Profile</h1>
-{{ user.username }}
+<main>
+    <h1>Edit Profile</h1>
+    {{ user.username }}
 
-<br><br>
-<div class="formAllign">
-    <form method="POST" class="editProfile">
-        {% if messages %}
-        {% for message in messages %}
-        <div class="alert alert-info">
-            {{ message }}
-        </div>
-        {% endfor %}
-        {% endif %}
-        {% csrf_token %}
-        <div class="mb-3">
-            <label class="form-label">Username</label>
-            <input type="text" name="username" value="{{user.username}}" class="form-control"
-                placeholder="Enter a new username">
-        </div>
+    <br><br>
+    <div class="formAllign">
+        <form method="POST" class="editProfile">
+            {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-info">
+                {{ message }}
+            </div>
+            {% endfor %}
+            {% endif %}
+            {% csrf_token %}
+            <div class="mb-3">
+                <label class="form-label">Username</label>
+                <input type="text" name="username" value="{{user.username}}" class="form-control"
+                    placeholder="Enter a new username">
+            </div>
 
-        <div class="mb-3">
-            <label class="form-label">Email</label>
-            <input type="text" name="email" value="{{user.email}}" class="form-control" placeholder="Enter a new email">
-        </div>
+            <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input type="text" name="email" value="{{user.email}}" class="form-control"
+                    placeholder="Enter a new email">
+            </div>
 
-        <div class="mb-3">
-            <label class="form-label">Address</label>
-            <input type="text" name="address" value="{{user.address}}" class="form-control"
-                placeholder="Enter a new address">
-        </div>
-
-
-        <input type="submit" value="Update Profile" class="btn btn-success">
-    </form>
-</div>
+            <div class="mb-3">
+                <label class="form-label">Address</label>
+                <input type="text" name="address" value="{{user.address}}" class="form-control"
+                    placeholder="Enter a new address">
+            </div>
 
 
-</div>
+            <input type="submit" value="Update Profile" class="btn btn-success">
+        </form>
+
+
+    </div>
+
+    <small>Want to change your password? <a href="{% url 'changepassword' user.auth_token %}">Click here</a></small>
+    </div>
+</main>
 
 {% endblock content %}

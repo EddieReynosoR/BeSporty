@@ -49,17 +49,25 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'products' %}">Catalog</a>
                         </li>
+                        {% if user.is_staff %}
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'create' %}">Post item</a>
                         </li>
+
+
+
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'listIssue' %}">List Support</a>
                         </li>
+                        {% endif %}
                     </ul>
-                                      
-                    <a href="{% url 'cart' %}"><div class="cart"> <i class="fa-solid fa-cart-shopping"></i>{{total_quantity}} </div></a>
+
+
 
                     {% if user.is_authenticated %}
+                    <a href="{% url 'cart' %}">
+                        <div class="cart"> <i class="fa-solid fa-cart-shopping"></i>{{total_quantity}} </div>
+                    </a>
 
                     <button class="btn-user" onclick="toggleMenu()"><i class="fa-solid fa-user"></i></button>
 
@@ -73,7 +81,7 @@
                             </div>
                             <hr>
 
-                            <a href="#" class="sub-menu-link">
+                            <a href="{% url 'edit' %}" class="sub-menu-link">
                                 <i class="fa-solid fa-user-pen"></i>
                                 <p>Edit Profile</p>
                                 <span>></span>
@@ -96,6 +104,9 @@
                     {% else %}
                     <a class="btn btn-outline-success" type="submit" id="signButton"
                         href="{% url 'registration' %}">Sign
+                        in</a>
+
+                    <a class="btn btn-outline-success" type="submit" id="loginButton" href="{% url 'loginForm' %}">Log
                         in</a>
                     {% endif %}
                 </div>

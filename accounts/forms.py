@@ -20,16 +20,13 @@ class RegistrationForm(UserCreationForm):
         self.fields["address"].widget.attrs.update({
             'class':'form-control',
         })
-        self.fields["type"].widget.attrs.update({
-            'class':'form-control',
-        })
         self.fields["email"].widget.attrs.update({
             'class':'form-control',
         })
 
     class Meta:
         model = CustomUser
-        fields = UserCreationForm.Meta.fields + ('type', 'address', 'email')
+        fields = UserCreationForm.Meta.fields + ('address', 'email')
 
 class CustomUserChangeForm(UserChangeForm):
     def __init__(self, *args, **kwargs):
@@ -44,9 +41,6 @@ class CustomUserChangeForm(UserChangeForm):
             'class':'form-control',
         })
         self.fields["address"].widget.attrs.update({
-            'class':'form-control',
-        })
-        self.fields["type"].widget.attrs.update({
             'class':'form-control',
         })
         self.fields["email"].widget.attrs.update({

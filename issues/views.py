@@ -99,6 +99,8 @@ def contact(request):
 
             user_obj = CustomUser.objects.get(username = issue_obj.author)
 
+            
+
             send_mail(
                 'Support Email',
                 f'We received your email {user_obj.username}, please wait until we answer you!',

@@ -19,7 +19,6 @@ def RegistrationView(request):
     if request.method == 'POST':
         username = request.POST.get("username")
         email = request.POST.get("email")
-        type = request.POST.get("Type")
         address = request.POST.get("address")
         password = request.POST.get("password1")
         
@@ -27,7 +26,7 @@ def RegistrationView(request):
         domain_name = get_current_site(request).domain
         token = str(random.random()).split('.')[1]
 
-        user_obj = CustomUser.objects.create(username = username, email = email, address = address, auth_token = token, type = type, password = password)
+        user_obj = CustomUser.objects.create(username = username, email = email, address = address, auth_token = token, password = password)
         user_obj.set_password(password)
         user_obj.save()
         
@@ -103,7 +102,6 @@ def EditProfileView(request):
         username = request.POST.get("username")
         print(username)
         email = request.POST.get("email")
-        type = request.POST.get("Type")
         address = request.POST.get("address")
         
         
@@ -127,8 +125,7 @@ def EditProfileView(request):
                             user_obj.is_verified = False
                             
                             user_obj.username = username
-                            user_obj.email = email
-                            user_obj.type = type
+                            user_obj.email = email                          
                             user_obj.address = address
 
                             
@@ -157,8 +154,7 @@ def EditProfileView(request):
                         else:
 
                             user_obj.username = username
-                            user_obj.email = email
-                            user_obj.type = type
+                            user_obj.email = email                         
                             user_obj.address = address
 
                             
