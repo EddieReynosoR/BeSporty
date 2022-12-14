@@ -18,6 +18,7 @@ class Cart:
                 "price_acum": float(item.price),
                 "type": item.type.name,
                 "quantity": 1,
+                "size": item.size.sizeName,
             }
         else:
             self.cart[id]["quantity"] +=1

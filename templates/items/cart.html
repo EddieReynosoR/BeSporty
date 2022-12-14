@@ -11,6 +11,8 @@
                 <tr>
                     <th scope="col">Name</th>
                     <th scope="col">Price</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Size</th>
                     <th scope="col">Quantity</th>
                 </tr>
             </thead>
@@ -20,6 +22,8 @@
                 <tr>
                     <td>{{value.name}}</td>
                     <td>{{value.price_acum}}</td>
+                    <td>{{value.type}}</td>
+                    <td>{{value.size}}</td>
                     <td>{{value.quantity}}
                             <a href="{% url 'Add' value.item_id %}" class="badge btn btn-dark badge-dark">+</a>
                             <a href="{% url 'substract' value.item_id %}" class="badge btn btn-dark badge-dark">-</a>
@@ -28,14 +32,14 @@
                 {% endfor %}
                 {% else %}
                 <tr>
-                    <td colspan="3">
+                    <td colspan="5">
                         <div class="alert alert-danger text-center">No products yet.</div>
                     </td>
                 </tr>
                 {% endif %}
                 <tr>
                     <th scope="row">Total:</th>
-                    <td colspan="2">{{total_cost}}</td>
+                    <td colspan="4">{{total_cost}}</td>
                 </tr>
             </tbody>
             <hr>

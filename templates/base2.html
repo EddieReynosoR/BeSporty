@@ -57,7 +57,7 @@
                         </li>
                     </ul>
                                       
-                    
+                    <a href="{% url 'cart' %}"><div class="cart"> <i class="fa-solid fa-cart-shopping"></i>{{total_quantity}} </div></a>
 
                     {% if user.is_authenticated %}
 

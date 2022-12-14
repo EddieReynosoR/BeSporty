@@ -7,7 +7,7 @@ class Type(models.Model):
 
     def __str__(self):
         return self.name
-
+        
 class Items(models.Model):
     title = models.CharField(max_length=256)
     price = models.DecimalField(decimal_places=2, max_digits= 10)
@@ -19,7 +19,6 @@ class Items(models.Model):
         blank = True,
         null = True
     )
-    
     def __str__(self):
         return self.title
 

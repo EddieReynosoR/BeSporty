@@ -141,3 +141,5 @@ def clean(request):
 
 class CartPage(TemplateView):
     template_name = "items/cart.html"
+
+
