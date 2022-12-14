@@ -3,7 +3,7 @@ def total(request):
     if request.user.is_authenticated:
         if "cart" in request.session.keys():
             for key, value in request.session["cart"].items():
-                total += float(value["price_acum"])
+                total += round(float(value["price_acum"]),2)
     return {"total_cost": total}
 
 def totalQuantity(request):
