@@ -3,7 +3,7 @@ main {
     text-align: center;
 }
 
-#signForm {
+#signForm, .editProfile {
     display: inline-block;
 
     margin-left: auto;

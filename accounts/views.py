@@ -5,7 +5,7 @@ from django.contrib import messages
 from .models import *
 from django.views.generic.edit import CreateView
 from django.views.generic import TemplateView
-from .forms import RegistrationForm
+from .forms import RegistrationForm, CustomUserChangeForm
 from django.contrib.sites.shortcuts import get_current_site
 import random
 from django.core.mail import send_mail
@@ -97,16 +97,143 @@ def Verify(request, token):
     except Exception as e:
         return render(request, 'registration/success.html', {'msg':e})
 
+def EditProfileView(request):
+    form = CustomUserChangeForm()
+    if request.method == 'POST':
+        username = request.POST.get("username")
+        print(username)
+        email = request.POST.get("email")
+        type = request.POST.get("Type")
+        address = request.POST.get("address")
+        
+        
+        if username is not None and email is not None and address is not None:
+            if request.user.is_authenticated:
+                user = request.user
+
+                if username != user.username or email != user.email or address != user.address:
+                    if CustomUser.objects.filter(username=username).exclude(id=user.id).exists():
+                        messages.success(request, 'Username already in use.')
+                        return redirect('edit')
+                    elif CustomUser.objects.filter(email=email).exclude(id=user.id).exists():
+                        messages.success(request, 'Email already in use.')
+                        return redirect('edit')
+                    else:
+                        
+                        user_obj=CustomUser.objects.get(id = user.id)
 
 
-class SignUpView(CreateView):
-    template_name = "registration/signup.html"
-    form_class = RegistrationForm
-    success_url = reverse_lazy("token")
+                        if user_obj.email != email:
+                            user_obj.is_verified = False
+                            
+                            user_obj.username = username
+                            user_obj.email = email
+                            user_obj.type = type
+                            user_obj.address = address
+
+                            
+
+                            
+                            user_obj.save()
+                            messages.success(request, 'Your data has been changed. Your email has been changed, check your new email and verify it.')
+                            
+
+                            token = user_obj.auth_token
+
+                            domain_name = get_current_site(request).domain
+                            
+
+                            link = f'http://{domain_name}/accounts/verify/{token}'
+
+                            send_mail(
+                                'Email changed',
+                                f'Please click {link} to verify your new email!',
+                                settings.EMAIL_HOST_USER,
+                                [email],
+                                fail_silently=False,
+                            )
+                            logout(request)
+                            return redirect("loginForm")
+                        else:
+
+                            user_obj.username = username
+                            user_obj.email = email
+                            user_obj.type = type
+                            user_obj.address = address
+
+                            
+
+                            
+                            user_obj.save()
+                            messages.success(request, 'Your data has been changed.')
+                            
+                            
+                            return redirect("loginForm")
+                else:
+                    messages.success(request, 'You already have the same information.')
+                    return redirect("edit")
+        else:
+            messages.success(request, 'Null data not allowed')
+            return redirect("edit")
+
+            
+                
+        
+
+    return render(request, 'registration/edit_profile.html', {'form': form})
+
+def PasswordReset(request):
+    if request.method == 'POST':
+        email = request.POST.get("email")
+
+        if not CustomUser.objects.filter(email = email):
+            messages.success(request, 'The email is not registered.')
+            return redirect("resetpassword")
+        else:
+            user_obj = CustomUser.objects.filter(email = email).get()
+            token = user_obj.auth_token
+
+            domain_name = get_current_site(request).domain
+            
+
+            link = f'http://{domain_name}/accounts/passwordChange/{token}'
+
+            send_mail(
+                'Reset password',
+                f'Please click {link} to proceed with your password change.',
+                settings.EMAIL_HOST_USER,
+                [email],
+                fail_silently=False,
+            )
+            return render(request, 'registration/token3.html', {})
+
+        
+    return render(request, 'registration/password_reset_form.html', {})
 
 
-# class SuccessView(TemplateView):
-#     template_name = "registration/success.html"
+def PasswordChange(request, token):
+    if request.method == 'POST':
+        new_password1 = request.POST.get("new_password1")
+        new_password2 = request.POST.get("new_password2")
+        
+        if new_password1 is not None or new_password2 is not None:
+            user_obj = CustomUser.objects.filter(auth_token = token).get()
+            # if old_password == user_obj.password:
+            if new_password1 != new_password2:
+                messages.success(request, 'Please confirm your password.')
+                return redirect("changepassword", token = token)    
+            else:
+                user_obj.set_password(new_password1)
+                user_obj.save()
 
-class TokenView(TemplateView):
-    template_name = "registration/token.html"
+                return redirect("home")
+            # else:
+            #     messages.success(request, 'Your old password is not correct.')
+            #     return redirect("changepassword", token = token)
+        else:
+            messages.success(request, 'Null data not allowed.')
+            return redirect("changepassword", token = token)
+    return render(request, 'registration/password_change_form.html', {})
+
+        
+   

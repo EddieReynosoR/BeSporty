@@ -24,6 +24,7 @@
 
     <script src="{% static 'js/jquery-3.6.1.min.js' %}"></script>
 </head>
+
 <body>
     <header>
         <nav class="navbar navbar-expand-lg bg-light">
@@ -49,12 +50,12 @@
                         </li>
 
 
-                        
+
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'listIssue' %}">List Support</a>
                         </li>
                     </ul>
-                    
+
                     <div class="text-center">
                         <form class="d-flex" role="search" id="search-form" autocomplete="off">
                             {% csrf_token %}
@@ -63,8 +64,10 @@
                         </form>
                         <div class="results-card not-visible" id="results-box"></div>
                     </div>
-                    
-                    <a href="{% url 'cart' %}"><div class="cart"> <i class="fa-solid fa-cart-shopping"></i>{{total_quantity}} </div></a>
+
+                    <a href="{% url 'cart' %}">
+                        <div class="cart"> <i class="fa-solid fa-cart-shopping"></i>{{total_quantity}} </div>
+                    </a>
 
                     {% if user.is_authenticated %}
 
@@ -80,7 +83,7 @@
                             </div>
                             <hr>
 
-                            <a href="#" class="sub-menu-link">
+                            <a href="{% url 'edit' %}" class="sub-menu-link">
                                 <i class="fa-solid fa-user-pen"></i>
                                 <p>Edit Profile</p>
                                 <span>></span>

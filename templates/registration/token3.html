@@ -1,0 +1,15 @@
+{% extends 'base2.html' %}
+{% load static %}
+
+{% block title %} User confirmation {% endblock title %}
+
+{% block content %}
+<div class="success-container">
+    <div class="show-success">
+        <img src="{% static 'images/email.jpg' %}" alt="image">
+        <h2>Check your email!</h2>
+        <p>You have requested a password changes, to proceed go to your email.</p>
+        <a href="{% url 'home' %}" class="btn button">Ok</a>
+    </div>
+</div>
+{% endblock content %}
