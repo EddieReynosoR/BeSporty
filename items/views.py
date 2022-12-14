@@ -116,10 +116,16 @@ def store(request):
     return render(request, "base.html", {'items': itemsCart})
 
 def addItem(request, item_id):
-    print(request.POST.get("size"))
+    size = request.POST.get("size")
+    quantity = request.POST.get("quantity")
+
+    if quantity is None:
+        quantity = 1
+        
     cart = Cart(request)
     item = Items.objects.get(id=item_id)
-    cart.add(item)
+    cart.add(item,size,quantity)
+    
     return redirect("cart")
 
 def deleteItem(request, item_id):
