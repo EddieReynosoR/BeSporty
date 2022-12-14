@@ -16,9 +16,47 @@ div.container-fluid {
     justify-content: space-between;
 }
 
-.cart {
+/* .cart {
     margin-left: 10px;
     margin-right: 10px;
+} */
+
+.cart-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    color: #333333;
+    background: #dddddd;
+    border: none;
+    outline: none;
+    border-radius: 50%;
+    margin-right: 15px;
+    margin-left: 10px;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.cart-button:hover {
+    background-color: gray;
+    color: white;
+    border-color: gray;
+}
+
+.cart-button-badge {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    width: 20px;
+    height: 20px;
+    background: red;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
 }
 
 #signButton {
@@ -75,7 +113,12 @@ div.container-fluid {
         margin-top: 10px;
     }
 
-    #loginButton{
+    .cart-button {
+        margin-top: 20px;
+        margin-left: 0px;
+    }
+
+    #loginButton {
         margin-top: 10px;
     }
 

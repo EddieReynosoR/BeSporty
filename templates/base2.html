@@ -65,8 +65,11 @@
 
 
                     {% if user.is_authenticated %}
-                    <a href="{% url 'cart' %}">
-                        <div class="cart"> <i class="fa-solid fa-cart-shopping"></i>{{total_quantity}} </div>
+                    <a href="{% url 'cart' %}" class="cart-button">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        {% if total_quantity > 0 %}
+                        <span class="cart-button-badge">{{total_quantity}}</span>
+                        {% endif %}
                     </a>
 
                     <button class="btn-user" onclick="toggleMenu()"><i class="fa-solid fa-user"></i></button>
