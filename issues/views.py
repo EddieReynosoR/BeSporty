@@ -4,6 +4,9 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.urls import reverse_lazy
 from .models import Issue, Status
+from accounts.models import CustomUser
+from django.core.mail import send_mail
+from django.conf import settings
 
 # Create your views here.
 
@@ -83,3 +86,27 @@ class IssueDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     def test_func(self):
         post_obj = self.get_object()
         return post_obj.author == self.request.user
+
+def contact(request):
+    if request.method == "POST":
+        issue_title = request.POST.get("title")
+        issue_body = request.POST.get("body")
+
+        if request.user.is_authenticated:
+            user = request.user
+            issue_obj = Issue.objects.create(title = issue_title, body = issue_body, author = user)
+            issue_obj.save()
+
+            user_obj = CustomUser.objects.get(username = issue_obj.author)
+
+            send_mail(
+                'Support Email',
+                f'We received your email {user_obj.username}, please wait until we answer you!',
+                settings.EMAIL_HOST_USER,
+                [user_obj.email],
+                fail_silently=False,
+            )
+
+            return render(request, 'issues/createIssue.html', {'issue_author': user_obj.username})
+    else:
+        return render(request, 'issues/createIssue.html', {})

@@ -1,4 +1,3 @@
-
 class Cart:
     def __init__(self, request):
         self.request = request
@@ -11,7 +10,7 @@ class Cart:
             self.cart = cart
 
     def add(self, item):
-        id =str(item.id)
+        id=str(item.id)
         if id not in self.cart.keys():
             self.cart[id] = {
                 "item_id": item.id,
@@ -39,9 +38,9 @@ class Cart:
         id = str(item.id)
         if id in self.cart.keys():
             self.cart[id]["quantity"] -= 1
-            self.cart[id]["price_acum"] -= item.price
+            self.cart[id]["price_acum"] -= float(item.price)
 
-            if self.cart["quantity"] <= 0: self.delete() 
+            if self.cart[id]["quantity"] <= 0: self.delete(item) 
             self.saveCart()
 
     def clean(self):

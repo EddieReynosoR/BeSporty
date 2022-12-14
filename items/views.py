@@ -116,27 +116,28 @@ def store(request):
     return render(request, "base.html", {'items': itemsCart})
 
 def addItem(request, item_id):
+    print(request.POST.get("size"))
     cart = Cart(request)
     item = Items.objects.get(id=item_id)
     cart.add(item)
-    return redirect("list")
+    return redirect("cart")
 
 def deleteItem(request, item_id):
     cart = Cart(request)
     item = Items.objects.get(id=item_id)
     cart.delete(item)
-    return redirect("list")
+    return redirect("cart")
 
 def substractItem(request, item_id):
     cart = Cart(request)
     item = Items.objects.get(id=item_id)
     cart.substractItem(item)
-    return redirect("list")
+    return redirect("cart")
 
 def clean(request):
     cart = Cart(request)
     cart.clean()
-    return redirect("list")
+    return redirect("cart")
 
 class CartPage(TemplateView):
     template_name = "items/cart.html"

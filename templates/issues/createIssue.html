@@ -16,8 +16,13 @@
     <p>Yes you can, jusy go yo the settings, in profile select data, and click the button
         delete account, then confirm..</p>
 </div>
-
-<h1>Support Contact </h1>
+{% if issue_author %}
+<center>
+    <h2>Thanks {{ issue_author }}!</h2>
+    <p>We received your email and will respond shortly...</p>
+</center>
+<br /><br /><br />
+{%else%}
 <div class="support-body">
 
     <div class="support-container">
@@ -55,7 +60,7 @@
                     <div class="input-box">
                         <label class="form-label">Describe yor Issue</label>
                         <br>
-                        {{form.body}}
+                        <textarea name="body" id="body" cols="30" rows="10"></textarea>
                     </div>
                     <input type="submit" value="Send" class="btn-from btn btn-dark">
                 </form>
@@ -80,4 +85,5 @@
     </div> -->
 
 </div>
+{%endif%}
 {% endblock content %}

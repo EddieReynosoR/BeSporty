@@ -16,6 +16,11 @@ div.container-fluid {
     justify-content: space-between;
 }
 
+.cart{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
 #signButton {
     background-color: black;
     color: white;
