@@ -9,6 +9,7 @@ from django.urls import reverse_lazy
 from .models import Items, Type
 from django.http import JsonResponse
 from .carritos import Cart
+from django.contrib import messages
 # Create your views here.
 
 class ItemsListView(ListView):
@@ -124,9 +125,12 @@ def addItem(request, item_id):
 
     cart = Cart(request)
     item = Items.objects.get(id=item_id)
-    cart.add(item,size,quantity)
-
-    return redirect("cart")
+    if len(cart.cart.keys()) < 10:
+        cart.add(item,size,quantity)
+    else:
+        messages.success(request, "You can't add more items to your cart.")
+        return redirect('cart')
+    return redirect('cart')
 
 def deleteItem(request, item_id):
     key = request.POST.get("key")

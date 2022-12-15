@@ -6,6 +6,13 @@
 {% block content %}
 
 <div class="small-container cart-page">
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-info">
+        {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %}
     <table>
         <thead>
             <tr>
