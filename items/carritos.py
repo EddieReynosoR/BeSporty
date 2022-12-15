@@ -10,11 +10,11 @@ class Cart:
             self.cart = cart
 
     def add(self, item, size, quantity):
-    
+        print(self.cart)
         id=0
         # print(self.cart)
         if str(id) not in self.cart.keys():
-            self.cart[id] = {
+            self.cart[str(id)] = {
                 "item_id": item.id,
                 "uid": item.id,
                 "name": item.title,
@@ -23,7 +23,9 @@ class Cart:
                 "type": item.type.name,
                 "quantity": int(quantity),
                 "size": size,
+                "image": item.image.url
             }
+            print(self.cart)
         else:
             if self.cart[str(id)]["item_id"] == item.id and self.cart[str(id)]["size"] == size:
                     # print(id)
@@ -46,7 +48,7 @@ class Cart:
                         id += 1
                     # print(id)
                 if str(id) not in self.cart.keys():
-                    self.cart[id] = {
+                    self.cart[str(id)] = {
                     "item_id": item.id,
                     "uid": item.id,
                     "name": item.title,
@@ -55,7 +57,9 @@ class Cart:
                     "type": item.type.name,
                     "quantity": int(quantity),
                     "size": size,
+                    "image": item.image.url
                 }
+                    print(self.cart)
                 else:
                     if self.cart[str(id)]["item_id"] == item.id and self.cart[str(id)]["size"] == size:
                         # print(id)
@@ -65,6 +69,7 @@ class Cart:
                             self.cart[str(id)]["price_acum"] += round(float(item.price)*int(quantity),2),
                             self.cart[str(id)]["price_acum"] = round(self.cart[str(id)]["price_acum"])
                         else:
+                            print(self.cart)
                             self.cart[str(id)]["quantity"] +=1
                             self.cart[str(id)]["price_acum"] += float(item.price)
                             self.cart[str(id)]["price_acum"] = round(self.cart[str(id)]["price_acum"])
@@ -134,10 +139,11 @@ class Cart:
         self.session["cart"] = self.cart
         self.session.modified = True
     
-    def delete(self, item):
-        id =str(item.id)
+    def delete(self, key):
+        id = key
         if id in self.cart:
-            del self.cart[id]
+            self.cart.pop(str(id))
+            print(self.cart)
             self.saveCart()
 
     def substractItem(self, item, key):
@@ -148,6 +154,7 @@ class Cart:
             self.cart[str(id)]["price_acum"] -= float(item.price)
             self.cart[str(id)]["price_acum"] = round(self.cart[str(id)]["price_acum"],2)
             if self.cart[str(id)]["quantity"] <= 0: self.cart.pop(str(id))
+            print(self.cart)
             self.saveCart()
 
     def clean(self):

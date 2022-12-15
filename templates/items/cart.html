@@ -4,40 +4,61 @@
 
 
 {% block content %}
-<div class="alert alert-primary" role="alert">
-    <table class="table table-striped table-bordered table-hover">
+
+<div class="small-container cart-page">
+    <table>
         <thead>
             <tr>
-                <th scope="row" colspan="3" class="text-center">CART</th>
-            </tr>
-            <tr>
-                <th scope="col">Name</th>
-                <th scope="col">Price</th>
-                <th scope="col">Type</th>
-                <th scope="col">Size</th>
-                <th scope="col">Quantity</th>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+
             </tr>
         </thead>
         <tbody>
             {% if request.session.cart.items %}
             {% for key, value in request.session.cart.items %}
             <tr>
-                <td>{{value.name}}</td>
-                <td>{{value.price_acum}}</td>
-                <td>{{value.type}}</td>
-                <td>{{value.size}}</td>
-                <td>{{value.quantity}}
-                    <form action="{% url 'add' value.item_id %}" method="POST">
-                        {% csrf_token %}
-                        <input type="hidden" name="size" value="{{value.size}}">
-                        <button type="submit" class="badge btn btn-dark badge-dark">+</button>
-                    </form>
+                <td>
+                    <div class="cart-info">
+                        <img src="{{value.image}}" alt="image">
+                        <div>
+                            <p>{{value.name}}</p>
+                            <p>{{value.type}}</p>
+                            <small>Size: {{value.size}}</small>
+                            <br>
+                            <form action="{% url 'remove' value.item_id %}" method="POST">
+                                {% csrf_token %}
+                                <input type="hidden" name="key" value="{{key}}">
+                                <button type="submit" class="btn btn-success">Remove</button>
+                            </form>
+                        </div>
+                    </div>
+                </td>
 
-                    <form action="{% url 'substract' value.item_id %}" method="POST">
-                        {% csrf_token %}
-                        <input type="hidden" name="key" value="{{key}}">
-                        <button type="submit" class="badge btn btn-dark badge-dark">-</button>
-                    </form>
+                <td>
+                    <div class="cart-info">
+                        <p class="p-quantity">{{value.quantity}}</p>
+                        <form action="{% url 'add' value.item_id %}" method="POST">
+                            {% csrf_token %}
+                            <input type="hidden" name="size" value="{{value.size}}">
+                            <button id="add" type="submit" class="badge btn btn-dark badge-dark">+</button>
+                        </form>
+
+                        <form action="{% url 'substract' value.item_id %}" method="POST">
+                            {% csrf_token %}
+                            <input type="hidden" name="key" value="{{key}}">
+                            <button id="add" type="submit" class="badge btn btn-dark badge-dark">-</button>
+                        </form>
+                    </div>
+                </td>
+
+                <td>
+                    <div class="cart-info">
+                        <div>
+                            <p>${{value.price_acum}}</p>
+                        </div>
+                    </div>
                 </td>
             </tr>
             {% endfor %}
@@ -48,21 +69,22 @@
                 </td>
             </tr>
             {% endif %}
-            <tr>
-                <th scope="row">Total:</th>
-                <td colspan="4">{{total_cost}}</td>
-            </tr>
         </tbody>
-        <hr>
-
-
-        <div>
-            <div class="row text-center">
-                <div class="col-6"><a href="{% url 'clean' %}" class="btn btn-danger">Clean</a></div>
-                <div class="col-6"><a href="#" class="btn btn-success">Buy</a></div>
-            </div>
-        </div>
     </table>
+    <div class="total-price">
+        <table>
+            <tr>
+                <td>Total:</td>
+                <td>${{total_cost}}</td>
+                <td class="buy">
+                    <a href="#" class="btn btn-success">Buy</a>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+    <div class="col-6"><a href="{% url 'clean' %}" class="btn btn-danger">Clean</a></div>
 </div>
+
 
 {% endblock content %}

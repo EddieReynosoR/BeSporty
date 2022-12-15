@@ -118,7 +118,6 @@ def store(request):
 def addItem(request, item_id):
     size = request.POST.get("size")
     quantity = request.POST.get("quantity")
-    name = request.POST.get("name")
 
     if quantity is None:
         quantity = 1
@@ -130,9 +129,9 @@ def addItem(request, item_id):
     return redirect("cart")
 
 def deleteItem(request, item_id):
+    key = request.POST.get("key")
     cart = Cart(request)
-    item = Items.objects.get(id=item_id)
-    cart.delete(item)
+    cart.delete(key)
     return redirect("cart")
 
 def substractItem(request, item_id):
