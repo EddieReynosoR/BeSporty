@@ -14,27 +14,31 @@ class Cart:
         if id not in self.cart.keys():
             self.cart[id] = {
                 "item_id": item.id,
+                "uid": item.id,
                 "name": item.title,
+                "price": float(item.price),
                 "price_acum": round(float(item.price)*int(quantity),2),
                 "type": item.type.name,
                 "quantity": int(quantity),
                 "size": size,
             }
         elif int(str(quantity))>1:
-            if self.cart[id]["size"] == size:
-                self.cart[id]["quantity"] += int(quantity)
-                self.cart[id]["price_acum"] += float(item.price)*int(quantity)
-                self.cart[id]["price_acum"] = round(self.cart[id]["price_acum"],2)
-            else:
+            if self.cart[id]["size"] != size:
                 id = len(self.cart.keys())+1
                 self.cart[id] = {
-                "item_id": item.id,
+                "item_id": id, 
+                "uid": item.id,
                 "name": item.title,
+                 "price": float(item.price),
                 "price_acum": round(float(item.price)*int(quantity),2),
                 "type": item.type.name,
                 "quantity": int(quantity),
                 "size": size,
             }
+            else:
+                self.cart[id]["quantity"] += int(quantity)
+                self.cart[id]["price_acum"] += float(item.price)*int(quantity)
+                self.cart[id]["price_acum"] = round(self.cart[id]["price_acum"],2)
         else:
             self.cart[id]["quantity"] +=1
             self.cart[id]["price_acum"] += float(item.price)
@@ -53,6 +57,7 @@ class Cart:
 
     def substractItem(self, item):
         id = str(item.id)
+        print(id)
         if id in self.cart.keys():
             self.cart[id]["quantity"] -= 1
             self.cart[id]["price_acum"] -= float(item.price)

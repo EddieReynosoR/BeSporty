@@ -26,8 +26,8 @@
                     <td>{{value.type}}</td>
                     <td>{{value.size}}</td>
                     <td>{{value.quantity}}
-                            <a href="{% url 'add' value.item_id %}" class="badge btn btn-dark badge-dark">+</a>
-                            <a href="{% url 'substract' value.item_id %}" class="badge btn btn-dark badge-dark">-</a>
+                            <a href="{% url 'add' value.uid %}" class="badge btn btn-dark badge-dark">+</a>
+                            <a href="{% url 'substract' value.uid %}" class="badge btn btn-dark badge-dark">-</a>
                     </td>
                 </tr>
                 {% endfor %}
