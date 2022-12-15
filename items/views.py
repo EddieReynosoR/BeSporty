@@ -121,11 +121,11 @@ def addItem(request, item_id):
 
     if quantity is None:
         quantity = 1
-        
+
     cart = Cart(request)
     item = Items.objects.get(id=item_id)
     cart.add(item,size,quantity)
-    
+
     return redirect("cart")
 
 def deleteItem(request, item_id):

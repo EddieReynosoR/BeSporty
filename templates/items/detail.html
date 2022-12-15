@@ -14,7 +14,7 @@
             <h4>{{items.price}}</h4>
             
             {% if user.is_authenticated %}
-            <form method="POST" action="{% url 'Add' items.id %}">
+            <form method="POST" action="{% url 'add' items.id %}">
                 {% csrf_token %}
                 <select name="size">
                     <option>Select Size</option>

@@ -21,9 +21,20 @@ class Cart:
                 "size": size,
             }
         elif int(str(quantity))>1:
-            self.cart[id]["quantity"] += int(quantity)
-            self.cart[id]["price_acum"] += float(item.price)*int(quantity)
-            self.cart[id]["price_acum"] = round(self.cart[id]["price_acum"],2)
+            if self.cart[id]["size"] == size:
+                self.cart[id]["quantity"] += int(quantity)
+                self.cart[id]["price_acum"] += float(item.price)*int(quantity)
+                self.cart[id]["price_acum"] = round(self.cart[id]["price_acum"],2)
+            else:
+                id = len(self.cart.keys())+1
+                self.cart[id] = {
+                "item_id": item.id,
+                "name": item.title,
+                "price_acum": round(float(item.price)*int(quantity),2),
+                "type": item.type.name,
+                "quantity": int(quantity),
+                "size": size,
+            }
         else:
             self.cart[id]["quantity"] +=1
             self.cart[id]["price_acum"] += float(item.price)
