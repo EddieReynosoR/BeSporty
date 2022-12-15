@@ -29,7 +29,7 @@ class Cart:
                     # print(id)
                     if int(str(quantity))>1:
                         self.cart[str(id)]["quantity"] += int(quantity)
-                        self.cart[str(id)]["price_acum"] += float(item.price)
+                        self.cart[str(id)]["price_acum"] += round(float(item.price)*int(quantity),2)
                         self.cart[str(id)]["price_acum"] = round(self.cart[str(id)]["price_acum"])
                     else:
                         self.cart[str(id)]["quantity"] +=1
@@ -62,7 +62,7 @@ class Cart:
                         if int(str(quantity))>1:
                             print(id)
                             self.cart[str(id)]["quantity"] += int(quantity)
-                            self.cart[str(id)]["price_acum"] += float(item.price)
+                            self.cart[str(id)]["price_acum"] += round(float(item.price)*int(quantity),2),
                             self.cart[str(id)]["price_acum"] = round(self.cart[str(id)]["price_acum"])
                         else:
                             self.cart[str(id)]["quantity"] +=1
