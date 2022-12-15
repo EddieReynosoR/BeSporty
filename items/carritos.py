@@ -9,7 +9,7 @@ class Cart:
         else:
             self.cart = cart
 
-    def add(self, item, size,quantity):
+    def add(self, item, size, quantity):
         id=str(item.id)
         if id not in self.cart.keys():
             self.cart[id] = {
@@ -28,6 +28,15 @@ class Cart:
             else:
                 id = len(self.cart.keys())+1
                 self.cart[id] = {
+                "item_id": item.id,
+                "name": item.title,
+                "price_acum": round(float(item.price)*int(quantity),2),
+                "type": item.type.name,
+                "quantity": int(quantity),
+                "size": size,
+            }
+        elif self.cart[id]["size"] != size:
+            self.cart[id] = {
                 "item_id": item.id,
                 "name": item.title,
                 "price_acum": round(float(item.price)*int(quantity),2),
