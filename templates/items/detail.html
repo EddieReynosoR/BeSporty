@@ -16,6 +16,31 @@
             {% if user.is_authenticated %}
             <form method="POST" action="{% url 'add' items.id %}">
                 {% csrf_token %}
+                {% if items.type.name == "Sneakers" %}
+                <select name="size">
+                    <option>10 US</option>
+                    <option>11 US</option>
+                    <option>12 US</option>
+                    <option>13 US</option>
+                    <option>14 US</option>
+                    <option>15 US</option>
+                    <option>16 US</option>
+                    <option>17 US</option>
+                    <option>18 US</option>
+                    <option>19 US</option>
+                    <option>20 US</option>
+                    <option>21 US</option>
+                    <option>22 US</option>
+                    <option>23 US</option>
+                    <option>24 US</option>
+                    <option>25 US</option>
+                    <option>26 US</option>
+                    <option>27 US</option>
+                    <option>28 US</option>
+                    <option>29 US</option>
+                    <option>30 US</option>
+                </select>
+                {% else %}
                 <select name="size">
                     <option>XXL</option>
                     <option>XL</option>
@@ -23,6 +48,7 @@
                     <option>Medium</option>
                     <option>Small</option>
                 </select>
+                {% endif %}
                 <input name="quantity" type="number" value="1" min="1" max="100">
 
                 <button type="submit" class="btn btnOffers"><i class="fa-solid fa-cart-plus"></i></button>

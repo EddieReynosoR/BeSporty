@@ -91,7 +91,11 @@
                                 <h2>{{user.username}}</h2>
                             </div>
                             <div class="user-info">
-                                <p>Is verified: {{user.is_verified}}</p>
+                                {% if user.is_verified %}
+                                <p>Is verified: <i class="fa-solid fa-circle-check"></i></p>
+                                {% else %}
+                                <p>Is verified: <i class="fa-sharp fa-solid fa-circle-xmark"></i></p>
+                                {% endif %}
                             </div>
                             <hr>
 

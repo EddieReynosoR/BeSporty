@@ -161,6 +161,7 @@ def EditProfileView(request):
 
                             
                             user_obj.save()
+                            logout(request)
                             messages.success(request, 'Your data has been changed.')
                             
                             
