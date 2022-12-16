@@ -30,7 +30,7 @@
                     <div class="cart-info">
                         <img src="{{value.image}}" alt="image">
                         <div>
-                            <p>{{value.name}}</p>
+                            <a href="{% url 'detail' value.item_id %}" class="cart-link">{{value.name}}</a>
                             <p>{{value.type}}</p>
                             <small>Size: {{value.size}}</small>
                             <br>

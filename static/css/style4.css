@@ -22,8 +22,12 @@ main {
     border-radius: 15px;
 
 
+
 }
 
+.cart-link {
+    text-decoration: none;
+}
 
 
 #imageForm {
