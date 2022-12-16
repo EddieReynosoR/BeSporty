@@ -84,7 +84,12 @@
                 <td>Total:</td>
                 <td>${{total_cost}}</td>
                 <td class="buy">
+                    {% if total_cost > 0 %}
                     <a href="{% url 'confirmBuy' %}" class="btn btn-success">Buy</a>
+                    {% endif %}
+                    {% if total_cost == 0 %}
+                    <a class="btn btn-secondary disabled" aria-disabled="true">Buy</a>
+                    {% endif %}
                 </td>
             </tr>
         </table>
