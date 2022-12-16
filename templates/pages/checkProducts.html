@@ -32,23 +32,56 @@
         <a href="{% url 'list_jerseys' %}" class="btn buttonProduct">Check out</a>
     </div>
 </section>
+<br><br><br>
+<h3 class="title">Check out all the products!</h1>
 
-<div class="offer">
-    <div class="small-container">
-        <div class="row">
-            <div class="col-2">
-                <img src="{% static 'images/kyrie.png' %}" alt="image">
+    <div class="body">
+        {% if items_list|length > 0 %}
+
+
+
+        <div class="slide-container swiper">
+            <div class="slide-content">
+                <div class="card-wrapper swiper-wrapper">
+                    {% for item in items_list %}
+                    <div class="card swiper-slide">
+                        <div class="image-content">
+                            <span class="overlay"></span>
+
+                            <div class="card-image">
+                                <img src="{{ item.image.url }}" alt="image" class="card-img">
+                            </div>
+                        </div>
+
+                        <div class="card-content">
+                            <h2 class="name">{{item.title}}</h2>
+                            <p class="description">{{item.description}}</p>
+
+                            <a href="{% url 'detail' item.id %}" class="btn button">Check</a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
             </div>
-            <div class="col-2">
-                <p>Exclusive offers for premium users!</p>
-                <h1>Best prices of the market</h1>
-                <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem error eum iure optio laborum magnam.</small>
-                <br>
-                <a href="#" class="btn btnOffers">Explore Now &#8594;</a>
-            </div>
+
+            <div class="swiper-button-next swiper-navBtn"></div>
+            <div class="swiper-button-prev swiper-navBtn"></div>
+            <div class="swiper-pagination"></div>
         </div>
+
+
+
+
+
+        {% else %}
+
+        <h5>There's no items yet.</h5>
+
+        {% endif %}
+
     </div>
-</div>
 
 
-{% endblock content %}
+
+
+    {% endblock content %}

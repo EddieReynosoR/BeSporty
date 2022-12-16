@@ -9,9 +9,9 @@
             <img src="{{ items.image.url }}" alt="imageItem">
         </div>
         <div class="col-2">
-            <p>{{items.title}}</p>
+            <p>{{items.type.name}}</p>
             <h1>{{items.title}}</h1>
-            <h4>{{items.price}}</h4>
+            <h4>${{items.price}}</h4>
 
             {% if user.is_authenticated %}
             <form method="POST" action="{% url 'add' items.id %}">
@@ -34,10 +34,7 @@
             </form>
 
             <h3>Product Details</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet non, sint facilis deleniti amet porro
-                vero hic praesentium ducimus earum sit? Error, quas! Vero quia fuga, asperiores facilis cupiditate
-                rerum?
-            </p>
+            <p>{{items.description}}</p>
 
             {% if items.type.name == 'Jerseys' %}
             <a href="{% url 'list_jerseys' %}" class="btn btnBack">Go back</a>

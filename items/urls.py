@@ -1,18 +1,18 @@
 from django.urls import path
 
-from .views import ItemsListView, ItemDetailView, ItemCreateView, ItemUpdateView, ItemDeleteView, SneakersListView, JerseysListView, ExerciseListView, SportListView,addItem, deleteItem, substractItem, clean, CartPage,search_results, buyConfirm
+from .views import ItemsListView, ItemDetailView, ItemCreateView, SneakersListView, JerseysListView, ExerciseListView, SportListView,addItem, deleteItem, substractItem, clean, CartPage,search_results, buyConfirm, ItemAdminDeleteView, ItemAdminUpdateView
 
 
 urlpatterns = [
-    path('', ItemsListView.as_view(), name = 'list'),
+    path('', ItemsListView.as_view(), name = 'listItems'),
+    path('editItem/<int:pk>', ItemAdminUpdateView.as_view(), name="editItem"),
+    path('<int:pk>/deleteItems/', ItemAdminDeleteView.as_view(), name="deleteItem"),
     path('Sneakers/', SneakersListView.as_view(), name = 'list_sneakers'),
     path('Exercises/', ExerciseListView.as_view(), name = 'list_exercise'),
     path('Sports/', SportListView.as_view(), name = 'list_sport'),
     path('Jerseys/', JerseysListView.as_view(), name = 'list_jerseys'),
     path('<int:pk>/', ItemDetailView.as_view(), name='detail'),
     path('create/', ItemCreateView.as_view(), name="create"),
-    path('<int:pk>/edit/', ItemUpdateView.as_view(), name="edit"),
-    path('<int:pk>/delete/', ItemDeleteView.as_view(), name="delete"),
     path('search/', search_results, name='search'),
     path('Sneakers/items/search/', search_results, name="search"),
     path('Sneakers/items/<int:pk>/', ItemDetailView.as_view(), name='detail'),

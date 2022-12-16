@@ -15,8 +15,30 @@ from django.core.mail import send_mail
 # Create your views here.
 
 class ItemsListView(ListView):
-    template_name = "items/list.html"
+    template_name = "items/listItems.html"
     model = Items
+
+
+
+
+class ItemAdminUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    template_name = "items/edit.html"
+    model = Items
+    fields = ["title", "price", "description", "type", "image"]
+
+    def test_func(self):
+        post_obj = self.get_object()
+        return post_obj
+
+
+class ItemAdminDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    template_name = "items/delete.html"
+    model = Items
+    success_url = reverse_lazy("listItems")
+
+    def test_func(self):
+        post_obj = self.get_object()
+        return post_obj
 
 class SneakersListView(ListView):
     template_name = "items/list.html"
@@ -73,24 +95,6 @@ class ItemCreateView(CreateView):
         return super().form_valid(form)
 
 
-class ItemUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
-    template_name = "issues/edit.html"
-    model = Items
-    fields = ["title", "price", "description", "image"]
-
-    def test_func(self):
-        post_obj = self.get_object()
-        return post_obj.author == self.request.user
-
-
-class ItemDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
-    template_name = "issues/delete.html"
-    model = Items
-    success_url = reverse_lazy("list")
-
-    def test_func(self):
-        post_obj = self.get_object()
-        return post_obj.author == self.request.user
 
 def search_results(request):
     if request.headers.get('x-requested-with') == 'XMLHttpRequest':

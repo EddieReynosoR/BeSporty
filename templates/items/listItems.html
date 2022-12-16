@@ -1,0 +1,37 @@
+{% extends 'base2.html' %}
+
+{% block title %}Items{% endblock title %}
+
+{% block content %}
+<h1>Items in database</h1>
+
+{% if items_list|length > 0 %}
+
+<ul class="card-container">
+    {% for item in items_list %}
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">{{ item.title }}</h4>
+            <h6 class="card-subtitle mb-2 text-muted">Type: {{ item.type.name }}</h6>
+            <h6 class="card-subtitle mb-2 text-muted">Price: ${{ item.price }}</h6>
+            <p class="card-text">{{ item.description|truncatechars:500 }}</p>
+            
+            <p class="author-options">
+                <a href="{% url 'editItem' item.id %}" class="card-link"><i class="bi bi-file-earmark-plus"></i></a>
+                <a href="{% url 'deleteItem' item.id %}" class="card-link"><i class="bi bi-trash"></i></a>
+            </p>
+
+        </div>
+    </div>
+    <br />
+
+    {% endfor %}
+
+</ul>
+
+{% else %}
+
+<h5>There's no items yet.</h5>
+
+{% endif %}
+{% endblock content %}

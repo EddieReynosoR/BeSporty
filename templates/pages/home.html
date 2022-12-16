@@ -19,20 +19,20 @@
                 <div class="carousel-item active">
                     <div class="info">
                         <h1>SNEAKERS</h1>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p> 
-                    </div>                  
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    </div>
                 </div>
                 <div class="carousel-item">
                     <div class="info">
                         <h1>EXERCISE WEAR</h1>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p> 
-                    </div>    
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    </div>
                 </div>
                 <div class="carousel-item">
                     <div class="info">
                         <h1>SPORTS WEAR</h1>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p> 
-                    </div>    
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    </div>
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
@@ -50,7 +50,7 @@
 
     <section class="checkProducts">
         <div class="main">
-            <img src="{% static 'images/kyrie.png' %}" alt="sneakers" />
+            <img src="{% static 'images/lebrons.png' %}" alt="sneakers" />
             <div class="about-text">
                 <h2>What's new?</h2>
                 <h5>Sneakers shop</h5>
@@ -59,10 +59,29 @@
                     voluptates, aperiam esse nisi vel!</p>
 
 
-                <a class="btn btn-outline-success" type="button" id="checkButton" href="{% url 'list' %}">Check out</a>
+                <a class="btn btn-outline-success" type="button" id="checkButton" href="{% url 'listItems' %}">Check
+                    out</a>
 
             </div>
         </div>
     </section>
+
+    <div class="offer">
+        <div class="small-container">
+            <div class="row">
+                <div class="col-2">
+                    <img src="{% static 'images/kyrie.png' %}" alt="image">
+                </div>
+                <div class="col-2">
+                    <p>Exclusive offers for premium users!</p>
+                    <h1>Best prices of the market</h1>
+                    <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem error eum iure optio laborum
+                        magnam.</small>
+                    <br>
+                    <a href="#" class="btn btnOffers">Explore Now &#8594;</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </main>
 {% endblock content %}
