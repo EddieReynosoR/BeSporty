@@ -10,6 +10,8 @@ from .models import Items, Type
 from django.http import JsonResponse
 from .carritos import Cart
 from django.contrib import messages
+from django.conf import settings
+from django.core.mail import send_mail
 # Create your views here.
 
 class ItemsListView(ListView):
@@ -152,5 +154,18 @@ def clean(request):
 
 class CartPage(TemplateView):
     template_name = "items/cart.html"
+
+def buyConfirm(request):
+    user = request.user
+    send_mail(
+        'Thank you for your purchase',
+        f'We are glad that you have buy with us!, hope you comeback!',
+        settings.EMAIL_HOST_USER,
+        [user.email],
+        fail_silently=False,
+    )
+    clean(request)
+
+    return render(request, 'registration/token4.html', {})
 
 

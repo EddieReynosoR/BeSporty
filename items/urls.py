@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .views import ItemsListView, ItemDetailView, ItemCreateView, ItemUpdateView, ItemDeleteView, SneakersListView, JerseysListView, ExerciseListView, SportListView,addItem, deleteItem, substractItem, clean, CartPage,search_results
+from .views import ItemsListView, ItemDetailView, ItemCreateView, ItemUpdateView, ItemDeleteView, SneakersListView, JerseysListView, ExerciseListView, SportListView,addItem, deleteItem, substractItem, clean, CartPage,search_results, buyConfirm
 
 
 urlpatterns = [
@@ -27,4 +27,5 @@ urlpatterns = [
     path('subtract/<int:item_id>', substractItem, name="substract"),
     path('clean/', clean, name="clean"),
     path('cart/',CartPage.as_view(), name="cart"),
+    path('buyConfirm/', buyConfirm, name="confirmBuy"),
 ]

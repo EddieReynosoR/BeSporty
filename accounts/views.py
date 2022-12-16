@@ -222,7 +222,7 @@ def PasswordChange(request, token):
                 user_obj.set_password(new_password1)
                 user_obj.save()
 
-                return redirect("home")
+                return redirect("loginForm")
             # else:
             #     messages.success(request, 'Your old password is not correct.')
             #     return redirect("changepassword", token = token)

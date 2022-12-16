@@ -59,6 +59,10 @@ div.container-fluid {
     border-radius: 50%;
 }
 
+.icons {
+    display: flex;
+}
+
 #signButton {
     background-color: rgb(255, 255, 255);
     color: rgb(0, 0, 0);
@@ -123,7 +127,7 @@ div.container-fluid {
     }
 
     .btn-user {
-        margin-top: 10px;
+        margin-top: 20px;
     }
 
     .sub-menu-wrap {
@@ -135,6 +139,10 @@ div.container-fluid {
         overflow: hidden;
         transition: max-height 0.5s;
         z-index: 2;
+    }
+
+    .icons {
+        display: flex;
     }
 }
 
