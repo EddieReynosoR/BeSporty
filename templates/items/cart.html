@@ -85,10 +85,25 @@
                 <td>${{total_cost}}</td>
                 <td class="buy">
                     {% if total_cost > 0 %}
-                    <a href="{% url 'confirmBuy' %}" class="btn btn-success">Buy</a>
+                    <a class="btn btn-success" onclick="document.getElementById('id01').style.display='block'">Buy</a>
+                    <div id="id01" class="modal">
+                        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                        <form class="modal-content" action="/action_page.php">
+                          <div class="container">
+                            <h1>Purchase Confirmation </h1>
+                            <p>Confirm?</p>
+                      
+                            <div class="clearfix">
+                              <a class="cancelbtn">Cancel</a>
+                              <a href="{% url 'confirmBuy' %}" class="deletebtn">Buy</a>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
                     {% endif %}
                     {% if total_cost == 0 %}
                     <a class="btn btn-secondary disabled" aria-disabled="true">Buy</a>
+                    
                     {% endif %}
                 </td>
             </tr>
