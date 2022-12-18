@@ -3,10 +3,37 @@
 {% block title %}Post New Item{% endblock title %}
 
 {% block content %}
-    <h1>Post New Item</h1>
-    <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Create" class="btn btn-success">
-    </form>
+    
+    <div class="formAllign ">
+        <form method="POST" enctype="multipart/form-data"><h1>Post New Item</h1>
+            {% csrf_token %}
+            <div class="input-box mb-3">
+                <label class="form-label" for="id_title">Item:</label>
+                <input type="text" name="title" placeholder="Enter your Products Name" required id="id_title">
+            </div>
+            <div class="input-box mb-3">
+                <label class="form-label" for="id_price">Price:</label>
+                <input type="number" name="price" step="0.01" required id="id_price">
+            </div>
+            <div class="input-box mb-3">
+                <label class="form-label" for="id_description">Description:</label>
+                <input type="text" name="description" placeholder="Describe the product" required id="id_description" maxlength="512">
+            </div>
+            <div class="input-box mb-3">
+                <label class="form-label" for="id_price">Image:</label>
+                <input type="file" name="image" accept="image/*" required id="id_image">
+            </div>
+            <div class="input-box mb-3">
+                <label class="form-label" for="id_price">Type:</label>
+                <select name="type" id="id_type">
+                    <option value="" selected="">---------</option>
+                    <option value="5">Sneakers</option>
+                    <option value="6">Exercise</option>
+                    <option value="7">Sport</option>
+                    <option value="8">Jerseys</option>
+                </select>
+            </div>
+            <input type="submit" value="Create" class="btn btn-from btn-success">
+        </form>
+    </div>
 {% endblock content %}
