@@ -7,8 +7,11 @@ environs==9.5.0
 marshmallow==3.19.0
 packaging==21.3
 Pillow==9.3.0
+psycopg2-binary==2.9.9
 PyJWT==2.6.0
 pyparsing==3.0.9
+pysqlite3==0.5.2
+pysqlite3-binary==0.5.2.post2
 python-dotenv==0.21.0
 sqlparse==0.4.3
 whitenoise==6.2.0
