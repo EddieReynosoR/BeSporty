@@ -7,10 +7,10 @@ def populate_types(apps, schemaeditor):
         "Sport":"Sportswear.",
         "Jerseys":"Shirts"
     }
-    Types = apps.get_model("items", "Type")
-    for name, desc in entries.items():
-        status_obj = Types(name=name)
-        status_obj.save()
+    # Types = apps.get_model("items", "Type")
+    # for name, desc in entries.items():
+    #     status_obj = Types(name=name)
+    #     status_obj.save()
 
 class Migration(migrations.Migration):
 
