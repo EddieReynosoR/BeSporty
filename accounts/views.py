@@ -17,30 +17,35 @@ from django.urls import reverse_lazy
 def RegistrationView(request):
     form = RegistrationForm()
     if request.method == 'POST':
-        username = request.POST.get("username")
-        email = request.POST.get("email")
-        address = request.POST.get("address")
-        password = request.POST.get("password1")
+        try:
+            username = request.POST.get("username")
+            email = request.POST.get("email")
+            address = request.POST.get("address")
+            password = request.POST.get("password1")
+            
         
-    
-        domain_name = get_current_site(request).domain
-        token = str(random.random()).split('.')[1]
+            domain_name = get_current_site(request).domain
+            token = str(random.random()).split('.')[1]
 
-        user_obj = CustomUser.objects.create(username = username, email = email, address = address, auth_token = token, password = password)
-        user_obj.set_password(password)
-        user_obj.save()
-        
+            user_obj = CustomUser.objects.create(username = username, email = email, address = address, auth_token = token, password = password)
+            user_obj.set_password(password)
+            user_obj.save()
+            
 
-        link = f'http://{domain_name}/accounts/verify/{token}'
+            link = f'http://{domain_name}/accounts/verify/{token}'
 
-        send_mail(
-            'Email Verification',
-            f'Please click {link} to verify your email!',
-            settings.EMAIL_HOST_USER,
-            [email],
-            fail_silently=False,
-        )
-        return render(request, 'registration/token.html', {})
+            send_mail(
+                'Email Verification',
+                f'Please click {link} to verify your email!',
+                settings.EMAIL_HOST_USER,
+                [email],
+                fail_silently=False,
+            )
+            return render(request, 'registration/token.html', {})
+        except:
+            messages.success(request, 'Something went wrong with the registration. Try again.')
+            return redirect('registration')
+
 
     return render(request, 'registration/signup.html', {'form': form})
 

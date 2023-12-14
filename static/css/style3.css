@@ -315,7 +315,11 @@ th:last-child {
 }
 
 @media only screen and (max-width: 600px) {
-    .cart-info p {
-        display: none;
+    .cart-info {
+        display:grid;
+    }
+
+    .cart-info form{
+        margin-bottom: 10px;
     }
 }
